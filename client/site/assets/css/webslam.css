@@ -1,0 +1,29 @@
+/*
+	.feature {
+		border: 1px solid #eee;
+		background: #fff;
+		-webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+		   -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+		    -ms-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+		     -o-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+		        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+		-webkit-border-radius: 0.27em;
+		   -moz-border-radius: 0.27em;
+		    -ms-border-radius: 0.27em;
+		     -o-border-radius: 0.27em;
+		        border-radius: 0.27em;
+		padding: 1.618em;
+	}
+*/
+
+.even {
+	background-color: #89ABD2;
+}
+
+.not {
+	display: none;
+}
+
+.rowHighlight {
+	font-weight: bold;
+}

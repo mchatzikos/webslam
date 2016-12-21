@@ -1,0 +1,137 @@
+Development Setup for Working with Hubzero
+
+1. Download and install Oracle Virtual Box:
+   https://www.virtualbox.org/
+
+
+2. Download version 1.3.1 of Hubzero:
+version 1.3.1:
+	https://hubzero.org/hubzero-open-source-release-131
+version 2.0.0:
+	https://hubzero.org/download
+
+
+3. Create a new HubZero Virtual Machine (VM)
+
+Follow these directions on Stack Overflow for importing a VMWare vm into VirtualBox:
+http://stackoverflow.com/questions/1505021/virtualbox-and-vmdk-vmx-files 
+
+“VMDK/VMX are VMWare file formats but you can use it with VirtualBox, just create
+a new Virtual Machine and when it asks for a hard disk choose "Use an existing
+hard disk" and click on the "button with folder and green arrow image on the combo
+box right" which opens Virtual Media Manager, it looks like this
+(http://www.virtualbox.org/attachment/wiki/Screenshots/virtual-disk-image-manager.png)
+(you can open it directly pressing CTRL+D on main window or in
+File > Virtual Media Manager menu)...
+
+And then you can add the VMDK/VMX hard disk image and setup it for your virtual machine"
+
+
+4. Setup Networking for the new HubZero VM
+
+The main goal of the network settings for the hubzero vm is to keep the vm off
+of a publicly accessible network because the root login and the admin login for
+the hubzero web application are well known and can be quickly hacked by intruders.
+
+Using a "host only" network setting allows us to have a static IP address to access
+the vm without using port forwarding.  However, "host only" networks do not allow
+access to the outside internet and a "host only" network needs to be paired with a
+NAT network.
+
+An explanation on how to enable both host only and NAT network adapters can be put
+together from the following two resources:
+http://askubuntu.com/questions/293816/in-virtualbox-how-do-i-set-up-host-only-virtual-machines-that-can-access-the-in
+
+https://www.youtube.com/watch?v=Jk5Kfm2-Muk
+
+
+5. Point the VM storage to the hubzero VM
+
+By this point, you have set up a new VM, but it is not yet a Hubzero VM.
+To do that, you must link the new machine to the HZ VMDK file, by
+adjusting "Settings > Storage > Controller SATA > hubzerovm-2.0.0.vmdk"
+where the last file may be found in your local install of HZ; for instance,
+on my machine, it is in
+	hubzerovm-2.0.0/hubzerovm-2.0.0
+where the top directory is the one extracted from the archive.
+
+
+6. Validate HubZero VM
+
+If not already started, startup up the new VM.
+
+Login via the VirtualBox console screen.
+example login: root
+Password: <see the hubzero website>
+
+
+7. Get VM IP Address
+
+We need to get the virtual machine ip address so we can access the virtual machine
+from the browser and other tools as needed.
+
+In the VirtualBox console screen run the following command:
+# ifconfig > ifconfig_output
+# less ifconfig_output
+
+The ip address needed should be either the eth0 or eth1 ip address.
+
+In our example case the ip address is:
+192.168.56.101
+
+Open a browser and see if HubZero responds to http requests:
+http://192.168.56.101/
+
+
+8. Deploy the WebSLAM Client into HubZero
+
+If not already started, startup up the new VM.
+
+  A. Manual Deploy
+  
+Login to the new VM and create the following directory:
+	/var/www/example/components/com_webslam		(version 1.3.1)
+or:	/var/www/example/app/components/com_webslam	(version 2.0.0)
+
+Download the git private repository into the newly created directory:
+git clone https://github.com/NCAR/webslam-client.git
+(You will be asked for your github login and password.)
+     
+  B. IDE Deployment (recommended)
+
+These directions are written for IntelliJ, but other IDEs should have similar features.
+
+Find your Deployment Setting.  The placement of this screen is different in all the versions of IntelliJ.
+
+Add a New Deployment (Click the +, plus sign)
+
+Name: hubzero_client_server
+
+Connection
+Type: SFTP
+SFTP host: 192.168.56.101
+Port: 22
+Root path: /
+User name: root
+Password: ***********
+
+Mappings
+Local path: /
+Development Path on Server '':
+/var/www/example/components/com_webslam
+
+
+Update the Options for Deployment
+
+Most of these are pretty self explainitory, but I like to turn the following options on:
+- Delete target items when source ones do not exist
+- Create emtpy directories
+- Upload changed files automatically to the default server: ALWAYS
+
+
+9. Start up hubzero at:
+http://192.168.56.101
+and go to the bottom of the page to click on "Jump to your Hub".
+
+Access the newly deployed WebSLAM client application:
+http://192.168.56.101/webslam

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.0">
+    <name>com_webslam</name>
+    <author>HUBzero</author>
+    <copyright>Copyright 2005-2015 Purdue University. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/lgpl-3.0.html LGPLv3</license>
+    <description>Webslam</description>
+
+    <files>
+    </files>
+    <languages>
+        <language tag="en-GB">en-GB.com_webslam.ini</language>
+    </languages>
+    <install>
+    </install>
+    <uninstall>
+    </uninstall>
+    <administration>
+      <menu>Webslam</menu>
+      <files>
+        <filename>controller.php</filename>
+        <filename>webslam.php</filename>
+        <filename>config.xml</filename>
+        <filename>views/data/tmpl/display.php</filename>
+      </files>
+    </administration>
+</extension>

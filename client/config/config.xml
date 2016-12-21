@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <fieldset
+    name="server"
+    label="SLAM Server Settings"
+    description="Settings for the server hosting SLAM.">
+
+    <field
+      name="host"
+      type="text"
+      label="SLAM Host"
+      description="The hostname of the SLAM server."
+      default=""
+    />
+
+
+    <field
+      name="queryurl"
+      type="text"
+      label="WebSLAM Query URL"
+      description="Server path to SLAM query script."
+      default=""
+    />
+
+    <field
+      name="getimageurl"
+      type="text"
+      label="GetImage URL"
+      description="Server path to SLAM image request script."
+      default=""
+    />
+  </fieldset>
+</config>
