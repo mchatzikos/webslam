@@ -4,7 +4,7 @@
     <author>HUBzero</author>
     <copyright>Copyright 2005-2015 Purdue University. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/lgpl-3.0.html LGPLv3</license>
-    <description>Webslam</description>
+    <description>webSLAM</description>
 
     <files>
     </files>
@@ -16,7 +16,7 @@
     <uninstall>
     </uninstall>
     <administration>
-      <menu>Webslam</menu>
+      <menu>webSLAM</menu>
       <files>
         <filename>controller.php</filename>
         <filename>webslam.php</filename>
