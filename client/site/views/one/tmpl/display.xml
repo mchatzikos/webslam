@@ -19,14 +19,14 @@
 -->
 
 <metadata>
-    <layout title="Webslam">
+    <layout title="webSLAM">
         <message>
             <![CDATA[Webslam]]>
         </message>
     </layout>
     <state>
         <name>Webslam</name>
-        <description>Galaxy collision app</description>
+        <description>SLAM Galaxy Cluster collision access app</description>
         <params>
         </params>
     </state>
