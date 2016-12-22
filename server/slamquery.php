@@ -39,7 +39,7 @@ function createScriptInputParamFile($filename, $params)
 	// Append a new param to the file
 	foreach ($params as $n => $v)
 	{
-		$current .= $n . " " . $v . "\n";
+		$current .= $n . " = " . $v . "\n";
 	}
 
 	// Write the contents back to the file
@@ -49,7 +49,7 @@ function createScriptInputParamFile($filename, $params)
 // Execute the (Perl) script (specified in properties)
 function callScript($scriptToRun, $inputFile, $outputFile)
 {
-	$scriptCommand = $scriptToRun ." -w ". $inputFile;
+	$scriptCommand = $scriptToRun ." -w -o -n=all ". $inputFile;
 	exec ($scriptCommand .' > ' .$outputFile, $result);
 }
 
