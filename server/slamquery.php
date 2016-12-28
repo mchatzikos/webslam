@@ -50,7 +50,13 @@ function createScriptInputParamFile($filename, $params)
 function callScript($scriptToRun, $inputFile, $outputFile)
 {
 	$scriptCommand = $scriptToRun ." -w -o -n=all ". $inputFile;
-	exec ($scriptCommand .' > ' .$outputFile, $result);
+	exec( $scriptCommand ." > ". $outputFile, $result, $return_value );
+	if( 0 )
+	{
+		echo $scriptCommand ."\n";
+		print_r ( $result );
+		echo "return_value:\t" . $return_value ."\n";
+	}
 }
 
 #	// convert output to multidimensional array
