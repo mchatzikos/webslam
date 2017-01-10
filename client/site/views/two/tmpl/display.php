@@ -110,9 +110,13 @@ $this->js('webslam-results');
         // Build array for all the values
         foreach($paramArray as $n => $v)
         {
-            array_push($Request_header, $v);
-            array_push($tableHeader, $n);
-            array_push($allParams, $n);
+	    if( ! ( $n == "cluster" || $n == "mode" || $n == "radius" ||
+	    		$n == "axis" || $n == "excCore" ) )
+	    {
+                array_push($Request_header, $v);
+                array_push($tableHeader, $n);
+                array_push($allParams, $n);
+	    }
         }
 
         echo "\t\t\t<tbody>\n";
