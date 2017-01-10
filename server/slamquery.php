@@ -21,11 +21,15 @@ $outputfile = $filepath .$outputFilename;
 
 $params = getInputParams();
 
+parseInputParams( $params, $scriptOptions, $observedValues );
+
+$scriptCmd = setScriptCmd( $scriptToRun, $scriptOptions, $inputfile, $outputfile );
+
 // Write file to file system containing list of input params based on form values
-createScriptInputParamFile($inputfile, $params);
+createScriptInputParamFile( $inputfile, $scriptCmd, $observedValues );
 
 // Execute script to get results into file
-callScript($scriptToRun, $inputfile, $outputfile);
+callScript( $scriptCmd );
 
 $output_string = file_get_contents( $outputfile);
 $json = json_decode( $output_string );
@@ -33,27 +37,60 @@ echo json_encode( $json, JSON_PRETTY_PRINT );
 
 /******************************************************/
 
-function createScriptInputParamFile($filename, $params)
+function parseInputParams( $params, &$scriptOptions, &$observedValues )
 {
-	$current = "";
-	// Append a new param to the file
 	foreach ($params as $n => $v)
 	{
-		$current .= $n . " = " . $v . "\n";
+		if( $n == "cluster" )
+		{
+			$scriptOptions .= " -cl=". $v;
+		}
+		else if( $n == "mode" )
+		{
+			$scriptOptions .= " -m=". $v;
+		}
+		else if( $n == "radius" )
+		{
+			$scriptOptions .= " -r=". $v;
+		}
+		else if( $n == "axis" )
+		{
+			$scriptOptions .= " -a=". $v;
+		}
+		else if( $n == "excCore" )
+		{
+			if( $v == "no" )
+			{
+				$scriptOptions .= " -exc";
+			}
+		}
+		else
+		{
+			$observedValues .= $n . " = " . $v . "\n";
+		}
 	}
-
-	// Write the contents back to the file
-	file_put_contents($filename, $current);
 }
 
-// Execute the (Perl) script (specified in properties)
-function callScript($scriptToRun, $inputFile, $outputFile)
+function createScriptInputParamFile( $filename, $scriptCmd, $observedValues )
 {
-	$scriptCommand = $scriptToRun ." -w -o -n=all ". $inputFile;
-	exec( $scriptCommand ." > ". $outputFile, $result, $return_value );
+	$contents = "# ". $scriptCmd . "\n";
+	$contents .= $observedValues;
+	file_put_contents( $filename, $contents );
+}
+
+function setScriptCmd( $scriptToRun, $scriptOptions, $inputfile, $outputfile )
+{
+	$scriptCmd = $scriptToRun . $scriptOptions ." -w -o -n=all ". $inputfile;
+	$scriptCmd .= " > ". $outputfile;
+	return	$scriptCmd;
+}
+
+function callScript( $scriptCmd )
+{
+	exec( $scriptCmd, $result, $return_value );
 	if( 0 )
 	{
-		echo $scriptCommand ."\n";
+		echo $scriptCmd ."\n";
 		print_r ( $result );
 		echo "return_value:\t" . $return_value ."\n";
 	}
