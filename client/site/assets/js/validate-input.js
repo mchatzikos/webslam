@@ -1,3 +1,5 @@
+'use strict';
+
 function validate_M1000_1( field )
 {
 	if( ! field )

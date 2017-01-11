@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(function() {
 	// This doesn't work with 'images' rows (not shown by default).
 	// All ('results') rows in the table have the same background color.
