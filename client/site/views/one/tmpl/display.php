@@ -18,7 +18,7 @@ defined('_JEXEC') or die('Restricted access');
 // $this->css()
 //      ->css('another');
 
-$this->css();
+$this->css( "webslam" );
 
  //Hubzero\Utility\Debug::dump(JPATH_COMPONENT);
  //Hubzero\Utility\Debug::dump($this->option);
@@ -31,6 +31,7 @@ $this->css();
 //
 // $this->js();
 $this->js( "validate-input" );
+$this->js( "menu" );
 
 ?>
 <div id="content-header">
@@ -63,20 +64,20 @@ $this->js( "validate-input" );
 				</div>
 				<div class="form-group">
 					<label class="control-label col-xs-2" for="mode">Integration type for X-ray / SZE cumulative measures</label>
-					<select id="mode" name="mode">
+					<select id="mode" name="mode" onchange="reveal_menu()">
 						<option disabled selected>-- select integration type --</option>
 						<option value="total">Spherical Volume</option>
 						<option value="proj">Projection (Cylindrical Volume)</option>
 					</select>
 				</div>
-				<div class="form-group">
+				<div class="not" id="totalInteg-radius">
 					<label class="control-label col-xs-2" for="radius">Spherical Radius</label>
 					<select id="radius" name="radius">
 						<option value="500">R500</option>
 						<option value="200">R200</option>
 					</select>
 				</div>
-				<div class="form-group">
+				<div class="not" id="projInteg-axis">
 					<label class="control-label col-xs-2" for="axis">Axis of observation</label>
 					<select id="axis" name="axis">
 						<option value="6" selected>z</option>
@@ -84,7 +85,7 @@ $this->js( "validate-input" );
 						<option value="4">x</option>
 					</select>
 				</div>
-				<div class="form-group">
+				<div class="not" id="projInteg-excCore">
 					<label class="control-label col-xs-2" for="excCore">Exclude Core from Projected quantities</label>
 					<select id="excCore" name="excCore">
 						<option value="no" selected>yes</option>
