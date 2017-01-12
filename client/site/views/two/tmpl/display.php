@@ -111,7 +111,7 @@ $this->js('webslam-results');
         foreach($paramArray as $n => $v)
         {
 	    if( ! ( $n == "cluster" || $n == "mode" || $n == "radius" ||
-	    		$n == "axis" || $n == "excCore" ) )
+	    		$n == "axis" || $n == "excCore" || $n == "optimized" ) )
 	    {
                 array_push($Request_header, $v);
                 array_push($tableHeader, $n);

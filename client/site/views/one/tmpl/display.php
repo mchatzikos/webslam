@@ -94,7 +94,7 @@ $this->js( "menu" );
 				</div>
 				<div class="form-group">
 					<label class="control-label col-xs-2" for="optimized"
-						title="Can improve query execution time by up to 7x for complicated searches">
+						title="Can improve query execution time by up to 7x for searches with many observables">
 						Optimize query for time?</label>
 					<input type="checkbox" name="optimized" id="optimized" value=1 checked>
 				</div>

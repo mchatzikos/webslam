@@ -6,6 +6,10 @@ function validate_M1000_1( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "M1000 primary cluster: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 6.1443e+12 || field > 3.6429e+15 ) ? "M1000 primary cluster = "+ field +": beyond limits (6.1443e+12, 3.6429e+15)\n" : "";
@@ -17,6 +21,10 @@ function validate_M1000_2( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "M1000 subcluster: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -30,6 +38,10 @@ function validate_M200_1( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "M200  primary cluster: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 1.0129e+13 || field > 5.43e+15 ) ? "M200  primary cluster = "+ field +": beyond limits (1.0129e+13, 5.43e+15)\n" : "";
@@ -41,6 +53,10 @@ function validate_M200_2( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "M200  subcluster: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -54,6 +70,10 @@ function validate_M2500_1( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "M2500 primary cluster: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 3.6668e+12 || field > 2.3638e+15 ) ? "M2500 primary cluster = "+ field +": beyond limits (3.6668e+12, 2.3638e+15)\n" : "";
@@ -65,6 +85,10 @@ function validate_M2500_2( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "M2500 subcluster: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -78,6 +102,10 @@ function validate_M500_1( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "M500  primary cluster: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 7.6629e+12 || field > 4.5599e+15 ) ? "M500  primary cluster = "+ field +": beyond limits (7.6629e+12, 4.5599e+15)\n" : "";
@@ -89,6 +117,10 @@ function validate_M500_2( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "M500  subcluster: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -102,6 +134,10 @@ function validate_R1000_1( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "R1000 primary cluster: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 220.732 || field > 1854.35 ) ? "R1000 primary cluster = "+ field +": beyond limits (220.732, 1854.35)\n" : "";
@@ -113,6 +149,10 @@ function validate_R1000_2( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "R1000 subcluster: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -126,6 +166,10 @@ function validate_R200_1( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "R200  primary cluster: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 445.889 || field > 3622.14 ) ? "R200  primary cluster = "+ field +": beyond limits (445.889, 3622.14)\n" : "";
@@ -137,6 +181,10 @@ function validate_R200_2( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "R200  subcluster: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -150,6 +198,10 @@ function validate_R2500_1( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "R2500 primary cluster: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 136.928 || field > 1182.86 ) ? "R2500 primary cluster = "+ field +": beyond limits (136.928, 1182.86)\n" : "";
@@ -161,6 +213,10 @@ function validate_R2500_2( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "R2500 subcluster: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -174,6 +230,10 @@ function validate_R500_1( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "R500  primary cluster: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 299.354 || field > 2517.89 ) ? "R500  primary cluster = "+ field +": beyond limits (299.354, 2517.89)\n" : "";
@@ -185,6 +245,10 @@ function validate_R500_2( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "R500  subcluster: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -198,6 +262,10 @@ function validate_dist( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Cluster Distance: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0 || field > 7037.48 ) ? "Cluster Distance = "+ field +": beyond limits (0, 7037.48)\n" : "";
@@ -209,6 +277,10 @@ function validate_m200_tot( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Total M200: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -222,6 +294,10 @@ function validate_m500_tot( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Total M500: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 8.6461e+12 || field > 4.5599e+15 ) ? "Total M500 = "+ field +": beyond limits (8.6461e+12, 4.5599e+15)\n" : "";
@@ -233,6 +309,10 @@ function validate_vrel( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Relative Velocity: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -246,6 +326,10 @@ function validate_Broad( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Broad band temperature: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0.442 || field > 27.024 ) ? "Broad band temperature = "+ field +": beyond limits (0.442, 27.024)\n" : "";
@@ -257,6 +341,10 @@ function validate_Hard( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Hard band temperature: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -270,6 +358,10 @@ function validate_Ratio( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Hardness ratio (hard / broad): value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 1.002 || field > 1.684 ) ? "Hardness ratio (hard / broad) = "+ field +": beyond limits (1.002, 1.684)\n" : "";
@@ -281,6 +373,10 @@ function validate_YSZ( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Volume SZE, Freq-independent: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -294,6 +390,10 @@ function validate_kSZE_150( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Kinetic SZE @ 150 GHz: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < -1.2293e-06 || field > 6.3413e-07 ) ? "Kinetic SZE @ 150 GHz = "+ field +": beyond limits (-1.2293e-06, 6.3413e-07)\n" : "";
@@ -305,6 +405,10 @@ function validate_kSZE_220( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Kinetic SZE @ 220 GHz: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -318,6 +422,10 @@ function validate_kSZE_350( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Kinetic SZE @ 350 GHz: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < -1.2939e-06 || field > 8.5515e-07 ) ? "Kinetic SZE @ 350 GHz = "+ field +": beyond limits (-1.2939e-06, 8.5515e-07)\n" : "";
@@ -329,6 +437,10 @@ function validate_kSZE_nr( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Freq-independent Kinetic SZE, no Rel-cor: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -342,6 +454,10 @@ function validate_tSZE_150( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Thermal SZE @ 150 GHz: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < -0.0016316 || field > -3.0197e-08 ) ? "Thermal SZE @ 150 GHz = "+ field +": beyond limits (-0.0016316, -3.0197e-08)\n" : "";
@@ -353,6 +469,10 @@ function validate_tSZE_220( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Thermal SZE @ 220 GHz: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -366,6 +486,10 @@ function validate_tSZE_350( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Thermal SZE @ 350 GHz: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 6.9149e-08 || field > 0.0031152 ) ? "Thermal SZE @ 350 GHz = "+ field +": beyond limits (6.9149e-08, 0.0031152)\n" : "";
@@ -377,6 +501,10 @@ function validate_tSZE_nr( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Freq-independent Thermal SZE, no Rel-cor: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -390,6 +518,10 @@ function validate_Lx_b_a( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Bolometric APEC Luminosity: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 1.3236e+42 || field > 5.692e+46 ) ? "Bolometric APEC Luminosity = "+ field +": beyond limits (1.3236e+42, 5.692e+46)\n" : "";
@@ -401,6 +533,10 @@ function validate_Lx_b_m( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Bolometric MeKaL Luminosity: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -414,6 +550,10 @@ function validate_Lx_c_a( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "[0.7-7] APEC Luminosity: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 4.3049e+41 || field > 1.9002e+46 ) ? "[0.7-7] APEC Luminosity = "+ field +": beyond limits (4.3049e+41, 1.9002e+46)\n" : "";
@@ -425,6 +565,10 @@ function validate_Lx_c_m( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "[0.7-7] MeKaL Luminosity: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -438,6 +582,10 @@ function validate_Lx_r_m( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "[2-10] MeKaL Luminosity: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 9.0907e+39 || field > 1.9955e+46 ) ? "[2-10] MeKaL Luminosity = "+ field +": beyond limits (9.0907e+39, 1.9955e+46)\n" : "";
@@ -449,6 +597,10 @@ function validate_Lx_w_a( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "[0.5-4] APEC Luminosity: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -462,6 +614,10 @@ function validate_Lx_w_m( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "[0.5-4] MeKaL Luminosity: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 6.6725e+41 || field > 1.2843e+46 ) ? "[0.5-4] MeKaL Luminosity = "+ field +": beyond limits (6.6725e+41, 1.2843e+46)\n" : "";
@@ -473,6 +629,10 @@ function validate_Tmg( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Mass-Weighted temp: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -486,6 +646,10 @@ function validate_Tsl( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Spectroscopic-like Temp (V06): value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0.4104 || field > 27.0075 ) ? "Spectroscopic-like Temp (V06) = "+ field +": beyond limits (0.4104, 27.0075)\n" : "";
@@ -497,6 +661,10 @@ function validate_Tx_b_a( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Bolometric APEC Emission-Weighted temp: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -510,6 +678,10 @@ function validate_Tx_b_m( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Bolometric MeKaL Emission-Weighted temp: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0.4123 || field > 36.9809 ) ? "Bolometric MeKaL Emission-Weighted temp = "+ field +": beyond limits (0.4123, 36.9809)\n" : "";
@@ -521,6 +693,10 @@ function validate_Tx_c_a( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "[0.7-7] APEC Emission-Weighted temp: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -534,6 +710,10 @@ function validate_Tx_c_m( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "[0.7-7] MeKaL Emission-Weighted temp: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0.547 || field > 31.2036 ) ? "[0.7-7] MeKaL Emission-Weighted temp = "+ field +": beyond limits (0.547, 31.2036)\n" : "";
@@ -545,6 +725,10 @@ function validate_Tx_r_m( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "[2-10] MeKaL Emission-Weighted temp: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -558,6 +742,10 @@ function validate_Tx_w_a( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "[0.5-4] APEC Emission-Weighted temp: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0.4525 || field > 30.2527 ) ? "[0.5-4] APEC Emission-Weighted temp = "+ field +": beyond limits (0.4525, 30.2527)\n" : "";
@@ -569,6 +757,10 @@ function validate_Tx_w_m( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "[0.5-4] MeKaL Emission-Weighted temp: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -582,6 +774,10 @@ function validate_Yx( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "X-ray proxy for Thermal Energy: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 2.6781e+11 || field > 1.9185e+16 ) ? "X-ray proxy for Thermal Energy = "+ field +": beyond limits (2.6781e+11, 1.9185e+16)\n" : "";
@@ -593,6 +789,10 @@ function validate_Asymmetry( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Hashimoto et al. (2007) def: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -606,6 +806,10 @@ function validate_AxialRatio( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "O'Hara et al. (2006) def: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0.1001 || field > 0.99978 ) ? "O'Hara et al. (2006) def = "+ field +": beyond limits (0.1001, 0.99978)\n" : "";
@@ -617,6 +821,10 @@ function validate_Dctr_pr( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Centroid-PRcen dist: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -630,6 +838,10 @@ function validate_Dpk_cen( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Peak--proj.center dist: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0 || field > 1.0661 ) ? "Peak--proj.center dist = "+ field +": beyond limits (0, 1.0661)\n" : "";
@@ -641,6 +853,10 @@ function validate_Dpk_pr( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Peak--PR center dist: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -654,6 +870,10 @@ function validate_Ellipticity( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Hashimoto et al. (2007) def: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0.00020787 || field > 0.82659 ) ? "Hashimoto et al. (2007) def = "+ field +": beyond limits (0.00020787, 0.82659)\n" : "";
@@ -665,6 +885,10 @@ function validate_P1P0_pk( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "Power ratio ord=1 about peak: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -678,6 +902,10 @@ function validate_P2P0_1C( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "P2/P0 ratio w/in  500.0 kpc, core included: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0 || field > 0.000436 ) ? "P2/P0 ratio w/in  500.0 kpc, core included = "+ field +": beyond limits (0, 0.000436)\n" : "";
@@ -689,6 +917,10 @@ function validate_P2P0_1E( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "P2/P0 ratio w/in (  30.0-- 500.0) kpc: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -702,6 +934,10 @@ function validate_P2P0_2C( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "P2/P0 ratio w/in 1000.0 kpc, core included: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0 || field > 0.0004887 ) ? "P2/P0 ratio w/in 1000.0 kpc, core included = "+ field +": beyond limits (0, 0.0004887)\n" : "";
@@ -713,6 +949,10 @@ function validate_P2P0_2E( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "P2/P0 ratio w/in (  30.0--1000.0) kpc: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -726,6 +966,10 @@ function validate_P2P0_R500C( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "P2/P0 ratio w/in 1.0 R500, core included: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 6.825e-13 || field > 0.000149 ) ? "P2/P0 ratio w/in 1.0 R500, core included = "+ field +": beyond limits (6.825e-13, 0.000149)\n" : "";
@@ -737,6 +981,10 @@ function validate_P2P0_R500E( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "P2/P0 ratio w/in (0.05--1.0) R500: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -750,6 +998,10 @@ function validate_P3P0_1C( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "P3/P0 ratio w/in  500.0 kpc, core included: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0 || field > 9.259e-05 ) ? "P3/P0 ratio w/in  500.0 kpc, core included = "+ field +": beyond limits (0, 9.259e-05)\n" : "";
@@ -761,6 +1013,10 @@ function validate_P3P0_1E( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "P3/P0 ratio w/in (  30.0-- 500.0) kpc: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -774,6 +1030,10 @@ function validate_P3P0_2C( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "P3/P0 ratio w/in 1000.0 kpc, core included: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0 || field > 1.076e-05 ) ? "P3/P0 ratio w/in 1000.0 kpc, core included = "+ field +": beyond limits (0, 1.076e-05)\n" : "";
@@ -785,6 +1045,10 @@ function validate_P3P0_2E( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "P3/P0 ratio w/in (  30.0--1000.0) kpc: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -798,6 +1062,10 @@ function validate_P3P0_R500C( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "P3/P0 ratio w/in 1.0 R500, core included: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 8.909e-16 || field > 2.753e-05 ) ? "P3/P0 ratio w/in 1.0 R500, core included = "+ field +": beyond limits (8.909e-16, 2.753e-05)\n" : "";
@@ -809,6 +1077,10 @@ function validate_P3P0_R500E( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "P3/P0 ratio w/in (0.05--1.0) R500: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -822,6 +1094,10 @@ function validate_P4P0_1C( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "P4/P0 ratio w/in  500.0 kpc, core included: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0 || field > 2.736e-05 ) ? "P4/P0 ratio w/in  500.0 kpc, core included = "+ field +": beyond limits (0, 2.736e-05)\n" : "";
@@ -833,6 +1109,10 @@ function validate_P4P0_1E( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "P4/P0 ratio w/in (  30.0-- 500.0) kpc: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -846,6 +1126,10 @@ function validate_P4P0_2C( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "P4/P0 ratio w/in 1000.0 kpc, core included: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0 || field > 4.522e-05 ) ? "P4/P0 ratio w/in 1000.0 kpc, core included = "+ field +": beyond limits (0, 4.522e-05)\n" : "";
@@ -857,6 +1141,10 @@ function validate_P4P0_2E( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "P4/P0 ratio w/in (  30.0--1000.0) kpc: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -870,6 +1158,10 @@ function validate_P4P0_R500C( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "P4/P0 ratio w/in 1.0 R500, core included: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 4.989e-16 || field > 1.072e-05 ) ? "P4/P0 ratio w/in 1.0 R500, core included = "+ field +": beyond limits (4.989e-16, 1.072e-05)\n" : "";
@@ -881,6 +1173,10 @@ function validate_P4P0_R500E( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "P4/P0 ratio w/in (0.05--1.0) R500: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -894,6 +1190,10 @@ function validate_Wctr( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "Centroid Shift: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 1.8264e-05 || field > 0.13509 ) ? "Centroid Shift = "+ field +": beyond limits (1.8264e-05, 0.13509)\n" : "";
@@ -905,6 +1205,10 @@ function validate_D150( field )
 	if( ! field )
 	{
 		return "";
+	}
+	else if( isNaN( field ) )
+	{
+		return "150 GHz Peak--proj.center dist: value= '"+ field +"' is Not a Number";
 	}
 	else
 	{
@@ -918,6 +1222,10 @@ function validate_D350( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "350 GHz Peak--proj.center dist: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0 || field > 0.27045 ) ? "350 GHz Peak--proj.center dist = "+ field +": beyond limits (0, 0.27045)\n" : "";
@@ -930,6 +1238,10 @@ function validate_Dnr( field )
 	{
 		return "";
 	}
+	else if( isNaN( field ) )
+	{
+		return "NR Peak--proj.center dist: value= '"+ field +"' is Not a Number";
+	}
 	else
 	{
 		return ( field < 0 || field > 0.27045 ) ? "NR Peak--proj.center dist = "+ field +": beyond limits (0, 0.27045)\n" : "";
@@ -938,7 +1250,7 @@ function validate_Dnr( field )
 
 function validate_valuesEntered( form )
 {
-	str_values = ""
+	var str_values = ""
 	str_values += form.M1000_1.value.toString();
 	str_values += form.M1000_2.value.toString();
 	str_values += form.M200_1.value.toString();
@@ -1031,7 +1343,7 @@ function validate_valuesEntered( form )
 
 function validate_valuesInBounds( form )
 {
-	fail = ""
+	var fail = ""
 	fail += validate_M1000_1 ( form.M1000_1.value );
 	fail += validate_M1000_2 ( form.M1000_2.value );
 	fail += validate_M200_1 ( form.M200_1.value );
