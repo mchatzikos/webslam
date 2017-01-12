@@ -54,7 +54,7 @@ $this->js( "menu" );
 			<br />
 			<form method="get" action="/webslam/two" role="form" class="form-horizontal" onsubmit="return validate( this )">
 			<fieldset>
-				<legend>Geometry</legend>
+				<legend>Query Parameters</legend>
 				<div class="form-group">
 					<label class="control-label col-xs-2" for="cluster">Cluster</label>
 					<select id="cluster" name="cluster">
@@ -91,6 +91,12 @@ $this->js( "menu" );
 						<option value="no" selected>yes</option>
 						<option value="no">no</option>
 					</select>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-xs-2" for="optimized"
+						title="Can improve query execution time by up to 7x for complicated searches">
+						Optimize query for time?</label>
+					<input type="checkbox" name="optimized" id="optimized" value=1 checked>
 				</div>
 			</fieldset>
 			<fieldset>
