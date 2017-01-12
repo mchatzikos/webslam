@@ -64,6 +64,13 @@ function parseInputParams( $params, &$scriptOptions, &$observedValues )
 				$scriptOptions .= " -exc";
 			}
 		}
+		else if( $n == "optimized" )
+		{
+			if( $v == 1 )
+			{
+				$scriptOptions .= " -o";
+			}
+		}
 		else
 		{
 			$observedValues .= $n . " = " . $v . "\n";
@@ -80,7 +87,7 @@ function createScriptInputParamFile( $filename, $scriptCmd, $observedValues )
 
 function setScriptCmd( $scriptToRun, $scriptOptions, $inputfile, $outputfile )
 {
-	$scriptCmd = $scriptToRun . $scriptOptions ." -w -o -n=all ". $inputfile;
+	$scriptCmd = $scriptToRun . $scriptOptions ." -w -n=all ". $inputfile;
 	$scriptCmd .= " > ". $outputfile;
 	return	$scriptCmd;
 }
