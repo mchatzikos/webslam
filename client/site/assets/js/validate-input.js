@@ -1251,84 +1251,318 @@ function validate_Dnr( field )
 function validate_valuesEntered( form )
 {
 	var str_values = ""
-	str_values += form.M1000_1.value.toString();
-	str_values += form.M1000_2.value.toString();
-	str_values += form.M200_1.value.toString();
-	str_values += form.M200_2.value.toString();
-	str_values += form.M2500_1.value.toString();
-	str_values += form.M2500_2.value.toString();
-	str_values += form.M500_1.value.toString();
-	str_values += form.M500_2.value.toString();
-	str_values += form.R1000_1.value.toString();
-	str_values += form.R1000_2.value.toString();
-	str_values += form.R200_1.value.toString();
-	str_values += form.R200_2.value.toString();
-	str_values += form.R2500_1.value.toString();
-	str_values += form.R2500_2.value.toString();
-	str_values += form.R500_1.value.toString();
-	str_values += form.R500_2.value.toString();
-	str_values += form.dist.value.toString();
-	str_values += form.m200_tot.value.toString();
-	str_values += form.m500_tot.value.toString();
-	str_values += form.vrel.value.toString();
-	str_values += form.Broad.value.toString();
-	str_values += form.Hard.value.toString();
-	str_values += form.Ratio.value.toString();
-	str_values += form.YSZ.value.toString();
-	str_values += form.kSZE_150.value.toString();
-	str_values += form.kSZE_220.value.toString();
-	str_values += form.kSZE_350.value.toString();
-	str_values += form.kSZE_nr.value.toString();
-	str_values += form.tSZE_150.value.toString();
-	str_values += form.tSZE_220.value.toString();
-	str_values += form.tSZE_350.value.toString();
-	str_values += form.tSZE_nr.value.toString();
-	str_values += form.Lx_b_a.value.toString();
-	str_values += form.Lx_b_m.value.toString();
-	str_values += form.Lx_c_a.value.toString();
-	str_values += form.Lx_c_m.value.toString();
-	str_values += form.Lx_r_m.value.toString();
-	str_values += form.Lx_w_a.value.toString();
-	str_values += form.Lx_w_m.value.toString();
-	str_values += form.Tmg.value.toString();
-	str_values += form.Tsl.value.toString();
-	str_values += form.Tx_b_a.value.toString();
-	str_values += form.Tx_b_m.value.toString();
-	str_values += form.Tx_c_a.value.toString();
-	str_values += form.Tx_c_m.value.toString();
-	str_values += form.Tx_r_m.value.toString();
-	str_values += form.Tx_w_a.value.toString();
-	str_values += form.Tx_w_m.value.toString();
-	str_values += form.Yx.value.toString();
-	str_values += form.Asymmetry.value.toString();
-	str_values += form.AxialRatio.value.toString();
-	str_values += form.Dctr_pr.value.toString();
-	str_values += form.Dpk_cen.value.toString();
-	str_values += form.Dpk_pr.value.toString();
-	str_values += form.Ellipticity.value.toString();
-	str_values += form.P1P0_pk.value.toString();
-	str_values += form.P2P0_1C.value.toString();
-	str_values += form.P2P0_1E.value.toString();
-	str_values += form.P2P0_2C.value.toString();
-	str_values += form.P2P0_2E.value.toString();
-	str_values += form.P2P0_R500C.value.toString();
-	str_values += form.P2P0_R500E.value.toString();
-	str_values += form.P3P0_1C.value.toString();
-	str_values += form.P3P0_1E.value.toString();
-	str_values += form.P3P0_2C.value.toString();
-	str_values += form.P3P0_2E.value.toString();
-	str_values += form.P3P0_R500C.value.toString();
-	str_values += form.P3P0_R500E.value.toString();
-	str_values += form.P4P0_1C.value.toString();
-	str_values += form.P4P0_1E.value.toString();
-	str_values += form.P4P0_2C.value.toString();
-	str_values += form.P4P0_2E.value.toString();
-	str_values += form.P4P0_R500C.value.toString();
-	str_values += form.P4P0_R500E.value.toString();
-	str_values += form.Wctr.value.toString();
-	str_values += form.D150.value.toString();
-	str_values += form.D350.value.toString();
-	str_values += form.Dnr.value.toString();
+	if( form.M1000_1 )
+	{
+		str_values += form.M1000_1.value.toString();
+	}
+	if( form.M1000_2 )
+	{
+		str_values += form.M1000_2.value.toString();
+	}
+	if( form.M200_1 )
+	{
+		str_values += form.M200_1.value.toString();
+	}
+	if( form.M200_2 )
+	{
+		str_values += form.M200_2.value.toString();
+	}
+	if( form.M2500_1 )
+	{
+		str_values += form.M2500_1.value.toString();
+	}
+	if( form.M2500_2 )
+	{
+		str_values += form.M2500_2.value.toString();
+	}
+	if( form.M500_1 )
+	{
+		str_values += form.M500_1.value.toString();
+	}
+	if( form.M500_2 )
+	{
+		str_values += form.M500_2.value.toString();
+	}
+	if( form.R1000_1 )
+	{
+		str_values += form.R1000_1.value.toString();
+	}
+	if( form.R1000_2 )
+	{
+		str_values += form.R1000_2.value.toString();
+	}
+	if( form.R200_1 )
+	{
+		str_values += form.R200_1.value.toString();
+	}
+	if( form.R200_2 )
+	{
+		str_values += form.R200_2.value.toString();
+	}
+	if( form.R2500_1 )
+	{
+		str_values += form.R2500_1.value.toString();
+	}
+	if( form.R2500_2 )
+	{
+		str_values += form.R2500_2.value.toString();
+	}
+	if( form.R500_1 )
+	{
+		str_values += form.R500_1.value.toString();
+	}
+	if( form.R500_2 )
+	{
+		str_values += form.R500_2.value.toString();
+	}
+	if( form.dist )
+	{
+		str_values += form.dist.value.toString();
+	}
+	if( form.m200_tot )
+	{
+		str_values += form.m200_tot.value.toString();
+	}
+	if( form.m500_tot )
+	{
+		str_values += form.m500_tot.value.toString();
+	}
+	if( form.vrel )
+	{
+		str_values += form.vrel.value.toString();
+	}
+	if( form.Broad )
+	{
+		str_values += form.Broad.value.toString();
+	}
+	if( form.Hard )
+	{
+		str_values += form.Hard.value.toString();
+	}
+	if( form.Ratio )
+	{
+		str_values += form.Ratio.value.toString();
+	}
+	if( form.YSZ )
+	{
+		str_values += form.YSZ.value.toString();
+	}
+	if( form.kSZE_150 )
+	{
+		str_values += form.kSZE_150.value.toString();
+	}
+	if( form.kSZE_220 )
+	{
+		str_values += form.kSZE_220.value.toString();
+	}
+	if( form.kSZE_350 )
+	{
+		str_values += form.kSZE_350.value.toString();
+	}
+	if( form.kSZE_nr )
+	{
+		str_values += form.kSZE_nr.value.toString();
+	}
+	if( form.tSZE_150 )
+	{
+		str_values += form.tSZE_150.value.toString();
+	}
+	if( form.tSZE_220 )
+	{
+		str_values += form.tSZE_220.value.toString();
+	}
+	if( form.tSZE_350 )
+	{
+		str_values += form.tSZE_350.value.toString();
+	}
+	if( form.tSZE_nr )
+	{
+		str_values += form.tSZE_nr.value.toString();
+	}
+	if( form.Lx_b_a )
+	{
+		str_values += form.Lx_b_a.value.toString();
+	}
+	if( form.Lx_b_m )
+	{
+		str_values += form.Lx_b_m.value.toString();
+	}
+	if( form.Lx_c_a )
+	{
+		str_values += form.Lx_c_a.value.toString();
+	}
+	if( form.Lx_c_m )
+	{
+		str_values += form.Lx_c_m.value.toString();
+	}
+	if( form.Lx_r_m )
+	{
+		str_values += form.Lx_r_m.value.toString();
+	}
+	if( form.Lx_w_a )
+	{
+		str_values += form.Lx_w_a.value.toString();
+	}
+	if( form.Lx_w_m )
+	{
+		str_values += form.Lx_w_m.value.toString();
+	}
+	if( form.Tmg )
+	{
+		str_values += form.Tmg.value.toString();
+	}
+	if( form.Tsl )
+	{
+		str_values += form.Tsl.value.toString();
+	}
+	if( form.Tx_b_a )
+	{
+		str_values += form.Tx_b_a.value.toString();
+	}
+	if( form.Tx_b_m )
+	{
+		str_values += form.Tx_b_m.value.toString();
+	}
+	if( form.Tx_c_a )
+	{
+		str_values += form.Tx_c_a.value.toString();
+	}
+	if( form.Tx_c_m )
+	{
+		str_values += form.Tx_c_m.value.toString();
+	}
+	if( form.Tx_r_m )
+	{
+		str_values += form.Tx_r_m.value.toString();
+	}
+	if( form.Tx_w_a )
+	{
+		str_values += form.Tx_w_a.value.toString();
+	}
+	if( form.Tx_w_m )
+	{
+		str_values += form.Tx_w_m.value.toString();
+	}
+	if( form.Yx )
+	{
+		str_values += form.Yx.value.toString();
+	}
+	if( form.Asymmetry )
+	{
+		str_values += form.Asymmetry.value.toString();
+	}
+	if( form.AxialRatio )
+	{
+		str_values += form.AxialRatio.value.toString();
+	}
+	if( form.Dctr_pr )
+	{
+		str_values += form.Dctr_pr.value.toString();
+	}
+	if( form.Dpk_cen )
+	{
+		str_values += form.Dpk_cen.value.toString();
+	}
+	if( form.Dpk_pr )
+	{
+		str_values += form.Dpk_pr.value.toString();
+	}
+	if( form.Ellipticity )
+	{
+		str_values += form.Ellipticity.value.toString();
+	}
+	if( form.P1P0_pk )
+	{
+		str_values += form.P1P0_pk.value.toString();
+	}
+	if( form.P2P0_1C )
+	{
+		str_values += form.P2P0_1C.value.toString();
+	}
+	if( form.P2P0_1E )
+	{
+		str_values += form.P2P0_1E.value.toString();
+	}
+	if( form.P2P0_2C )
+	{
+		str_values += form.P2P0_2C.value.toString();
+	}
+	if( form.P2P0_2E )
+	{
+		str_values += form.P2P0_2E.value.toString();
+	}
+	if( form.P2P0_R500C )
+	{
+		str_values += form.P2P0_R500C.value.toString();
+	}
+	if( form.P2P0_R500E )
+	{
+		str_values += form.P2P0_R500E.value.toString();
+	}
+	if( form.P3P0_1C )
+	{
+		str_values += form.P3P0_1C.value.toString();
+	}
+	if( form.P3P0_1E )
+	{
+		str_values += form.P3P0_1E.value.toString();
+	}
+	if( form.P3P0_2C )
+	{
+		str_values += form.P3P0_2C.value.toString();
+	}
+	if( form.P3P0_2E )
+	{
+		str_values += form.P3P0_2E.value.toString();
+	}
+	if( form.P3P0_R500C )
+	{
+		str_values += form.P3P0_R500C.value.toString();
+	}
+	if( form.P3P0_R500E )
+	{
+		str_values += form.P3P0_R500E.value.toString();
+	}
+	if( form.P4P0_1C )
+	{
+		str_values += form.P4P0_1C.value.toString();
+	}
+	if( form.P4P0_1E )
+	{
+		str_values += form.P4P0_1E.value.toString();
+	}
+	if( form.P4P0_2C )
+	{
+		str_values += form.P4P0_2C.value.toString();
+	}
+	if( form.P4P0_2E )
+	{
+		str_values += form.P4P0_2E.value.toString();
+	}
+	if( form.P4P0_R500C )
+	{
+		str_values += form.P4P0_R500C.value.toString();
+	}
+	if( form.P4P0_R500E )
+	{
+		str_values += form.P4P0_R500E.value.toString();
+	}
+	if( form.Wctr )
+	{
+		str_values += form.Wctr.value.toString();
+	}
+	if( form.D150 )
+	{
+		str_values += form.D150.value.toString();
+	}
+	if( form.D350 )
+	{
+		str_values += form.D350.value.toString();
+	}
+	if( form.Dnr )
+	{
+		str_values += form.Dnr.value.toString();
+	}
 
 	if( str_values == "" )
 	{
@@ -1344,84 +1578,318 @@ function validate_valuesEntered( form )
 function validate_valuesInBounds( form )
 {
 	var fail = ""
-	fail += validate_M1000_1 ( form.M1000_1.value );
-	fail += validate_M1000_2 ( form.M1000_2.value );
-	fail += validate_M200_1 ( form.M200_1.value );
-	fail += validate_M200_2 ( form.M200_2.value );
-	fail += validate_M2500_1 ( form.M2500_1.value );
-	fail += validate_M2500_2 ( form.M2500_2.value );
-	fail += validate_M500_1 ( form.M500_1.value );
-	fail += validate_M500_2 ( form.M500_2.value );
-	fail += validate_R1000_1 ( form.R1000_1.value );
-	fail += validate_R1000_2 ( form.R1000_2.value );
-	fail += validate_R200_1 ( form.R200_1.value );
-	fail += validate_R200_2 ( form.R200_2.value );
-	fail += validate_R2500_1 ( form.R2500_1.value );
-	fail += validate_R2500_2 ( form.R2500_2.value );
-	fail += validate_R500_1 ( form.R500_1.value );
-	fail += validate_R500_2 ( form.R500_2.value );
-	fail += validate_dist ( form.dist.value );
-	fail += validate_m200_tot ( form.m200_tot.value );
-	fail += validate_m500_tot ( form.m500_tot.value );
-	fail += validate_vrel ( form.vrel.value );
-	fail += validate_Broad ( form.Broad.value );
-	fail += validate_Hard ( form.Hard.value );
-	fail += validate_Ratio ( form.Ratio.value );
-	fail += validate_YSZ ( form.YSZ.value );
-	fail += validate_kSZE_150 ( form.kSZE_150.value );
-	fail += validate_kSZE_220 ( form.kSZE_220.value );
-	fail += validate_kSZE_350 ( form.kSZE_350.value );
-	fail += validate_kSZE_nr ( form.kSZE_nr.value );
-	fail += validate_tSZE_150 ( form.tSZE_150.value );
-	fail += validate_tSZE_220 ( form.tSZE_220.value );
-	fail += validate_tSZE_350 ( form.tSZE_350.value );
-	fail += validate_tSZE_nr ( form.tSZE_nr.value );
-	fail += validate_Lx_b_a ( form.Lx_b_a.value );
-	fail += validate_Lx_b_m ( form.Lx_b_m.value );
-	fail += validate_Lx_c_a ( form.Lx_c_a.value );
-	fail += validate_Lx_c_m ( form.Lx_c_m.value );
-	fail += validate_Lx_r_m ( form.Lx_r_m.value );
-	fail += validate_Lx_w_a ( form.Lx_w_a.value );
-	fail += validate_Lx_w_m ( form.Lx_w_m.value );
-	fail += validate_Tmg ( form.Tmg.value );
-	fail += validate_Tsl ( form.Tsl.value );
-	fail += validate_Tx_b_a ( form.Tx_b_a.value );
-	fail += validate_Tx_b_m ( form.Tx_b_m.value );
-	fail += validate_Tx_c_a ( form.Tx_c_a.value );
-	fail += validate_Tx_c_m ( form.Tx_c_m.value );
-	fail += validate_Tx_r_m ( form.Tx_r_m.value );
-	fail += validate_Tx_w_a ( form.Tx_w_a.value );
-	fail += validate_Tx_w_m ( form.Tx_w_m.value );
-	fail += validate_Yx ( form.Yx.value );
-	fail += validate_Asymmetry ( form.Asymmetry.value );
-	fail += validate_AxialRatio ( form.AxialRatio.value );
-	fail += validate_Dctr_pr ( form.Dctr_pr.value );
-	fail += validate_Dpk_cen ( form.Dpk_cen.value );
-	fail += validate_Dpk_pr ( form.Dpk_pr.value );
-	fail += validate_Ellipticity ( form.Ellipticity.value );
-	fail += validate_P1P0_pk ( form.P1P0_pk.value );
-	fail += validate_P2P0_1C ( form.P2P0_1C.value );
-	fail += validate_P2P0_1E ( form.P2P0_1E.value );
-	fail += validate_P2P0_2C ( form.P2P0_2C.value );
-	fail += validate_P2P0_2E ( form.P2P0_2E.value );
-	fail += validate_P2P0_R500C ( form.P2P0_R500C.value );
-	fail += validate_P2P0_R500E ( form.P2P0_R500E.value );
-	fail += validate_P3P0_1C ( form.P3P0_1C.value );
-	fail += validate_P3P0_1E ( form.P3P0_1E.value );
-	fail += validate_P3P0_2C ( form.P3P0_2C.value );
-	fail += validate_P3P0_2E ( form.P3P0_2E.value );
-	fail += validate_P3P0_R500C ( form.P3P0_R500C.value );
-	fail += validate_P3P0_R500E ( form.P3P0_R500E.value );
-	fail += validate_P4P0_1C ( form.P4P0_1C.value );
-	fail += validate_P4P0_1E ( form.P4P0_1E.value );
-	fail += validate_P4P0_2C ( form.P4P0_2C.value );
-	fail += validate_P4P0_2E ( form.P4P0_2E.value );
-	fail += validate_P4P0_R500C ( form.P4P0_R500C.value );
-	fail += validate_P4P0_R500E ( form.P4P0_R500E.value );
-	fail += validate_Wctr ( form.Wctr.value );
-	fail += validate_D150 ( form.D150.value );
-	fail += validate_D350 ( form.D350.value );
-	fail += validate_Dnr ( form.Dnr.value );
+	if( form.M1000_1 )
+	{
+		fail += validate_M1000_1 ( form.M1000_1.value );
+	}
+	if( form.M1000_2 )
+	{
+		fail += validate_M1000_2 ( form.M1000_2.value );
+	}
+	if( form.M200_1 )
+	{
+		fail += validate_M200_1 ( form.M200_1.value );
+	}
+	if( form.M200_2 )
+	{
+		fail += validate_M200_2 ( form.M200_2.value );
+	}
+	if( form.M2500_1 )
+	{
+		fail += validate_M2500_1 ( form.M2500_1.value );
+	}
+	if( form.M2500_2 )
+	{
+		fail += validate_M2500_2 ( form.M2500_2.value );
+	}
+	if( form.M500_1 )
+	{
+		fail += validate_M500_1 ( form.M500_1.value );
+	}
+	if( form.M500_2 )
+	{
+		fail += validate_M500_2 ( form.M500_2.value );
+	}
+	if( form.R1000_1 )
+	{
+		fail += validate_R1000_1 ( form.R1000_1.value );
+	}
+	if( form.R1000_2 )
+	{
+		fail += validate_R1000_2 ( form.R1000_2.value );
+	}
+	if( form.R200_1 )
+	{
+		fail += validate_R200_1 ( form.R200_1.value );
+	}
+	if( form.R200_2 )
+	{
+		fail += validate_R200_2 ( form.R200_2.value );
+	}
+	if( form.R2500_1 )
+	{
+		fail += validate_R2500_1 ( form.R2500_1.value );
+	}
+	if( form.R2500_2 )
+	{
+		fail += validate_R2500_2 ( form.R2500_2.value );
+	}
+	if( form.R500_1 )
+	{
+		fail += validate_R500_1 ( form.R500_1.value );
+	}
+	if( form.R500_2 )
+	{
+		fail += validate_R500_2 ( form.R500_2.value );
+	}
+	if( form.dist )
+	{
+		fail += validate_dist ( form.dist.value );
+	}
+	if( form.m200_tot )
+	{
+		fail += validate_m200_tot ( form.m200_tot.value );
+	}
+	if( form.m500_tot )
+	{
+		fail += validate_m500_tot ( form.m500_tot.value );
+	}
+	if( form.vrel )
+	{
+		fail += validate_vrel ( form.vrel.value );
+	}
+	if( form.Broad )
+	{
+		fail += validate_Broad ( form.Broad.value );
+	}
+	if( form.Hard )
+	{
+		fail += validate_Hard ( form.Hard.value );
+	}
+	if( form.Ratio )
+	{
+		fail += validate_Ratio ( form.Ratio.value );
+	}
+	if( form.YSZ )
+	{
+		fail += validate_YSZ ( form.YSZ.value );
+	}
+	if( form.kSZE_150 )
+	{
+		fail += validate_kSZE_150 ( form.kSZE_150.value );
+	}
+	if( form.kSZE_220 )
+	{
+		fail += validate_kSZE_220 ( form.kSZE_220.value );
+	}
+	if( form.kSZE_350 )
+	{
+		fail += validate_kSZE_350 ( form.kSZE_350.value );
+	}
+	if( form.kSZE_nr )
+	{
+		fail += validate_kSZE_nr ( form.kSZE_nr.value );
+	}
+	if( form.tSZE_150 )
+	{
+		fail += validate_tSZE_150 ( form.tSZE_150.value );
+	}
+	if( form.tSZE_220 )
+	{
+		fail += validate_tSZE_220 ( form.tSZE_220.value );
+	}
+	if( form.tSZE_350 )
+	{
+		fail += validate_tSZE_350 ( form.tSZE_350.value );
+	}
+	if( form.tSZE_nr )
+	{
+		fail += validate_tSZE_nr ( form.tSZE_nr.value );
+	}
+	if( form.Lx_b_a )
+	{
+		fail += validate_Lx_b_a ( form.Lx_b_a.value );
+	}
+	if( form.Lx_b_m )
+	{
+		fail += validate_Lx_b_m ( form.Lx_b_m.value );
+	}
+	if( form.Lx_c_a )
+	{
+		fail += validate_Lx_c_a ( form.Lx_c_a.value );
+	}
+	if( form.Lx_c_m )
+	{
+		fail += validate_Lx_c_m ( form.Lx_c_m.value );
+	}
+	if( form.Lx_r_m )
+	{
+		fail += validate_Lx_r_m ( form.Lx_r_m.value );
+	}
+	if( form.Lx_w_a )
+	{
+		fail += validate_Lx_w_a ( form.Lx_w_a.value );
+	}
+	if( form.Lx_w_m )
+	{
+		fail += validate_Lx_w_m ( form.Lx_w_m.value );
+	}
+	if( form.Tmg )
+	{
+		fail += validate_Tmg ( form.Tmg.value );
+	}
+	if( form.Tsl )
+	{
+		fail += validate_Tsl ( form.Tsl.value );
+	}
+	if( form.Tx_b_a )
+	{
+		fail += validate_Tx_b_a ( form.Tx_b_a.value );
+	}
+	if( form.Tx_b_m )
+	{
+		fail += validate_Tx_b_m ( form.Tx_b_m.value );
+	}
+	if( form.Tx_c_a )
+	{
+		fail += validate_Tx_c_a ( form.Tx_c_a.value );
+	}
+	if( form.Tx_c_m )
+	{
+		fail += validate_Tx_c_m ( form.Tx_c_m.value );
+	}
+	if( form.Tx_r_m )
+	{
+		fail += validate_Tx_r_m ( form.Tx_r_m.value );
+	}
+	if( form.Tx_w_a )
+	{
+		fail += validate_Tx_w_a ( form.Tx_w_a.value );
+	}
+	if( form.Tx_w_m )
+	{
+		fail += validate_Tx_w_m ( form.Tx_w_m.value );
+	}
+	if( form.Yx )
+	{
+		fail += validate_Yx ( form.Yx.value );
+	}
+	if( form.Asymmetry )
+	{
+		fail += validate_Asymmetry ( form.Asymmetry.value );
+	}
+	if( form.AxialRatio )
+	{
+		fail += validate_AxialRatio ( form.AxialRatio.value );
+	}
+	if( form.Dctr_pr )
+	{
+		fail += validate_Dctr_pr ( form.Dctr_pr.value );
+	}
+	if( form.Dpk_cen )
+	{
+		fail += validate_Dpk_cen ( form.Dpk_cen.value );
+	}
+	if( form.Dpk_pr )
+	{
+		fail += validate_Dpk_pr ( form.Dpk_pr.value );
+	}
+	if( form.Ellipticity )
+	{
+		fail += validate_Ellipticity ( form.Ellipticity.value );
+	}
+	if( form.P1P0_pk )
+	{
+		fail += validate_P1P0_pk ( form.P1P0_pk.value );
+	}
+	if( form.P2P0_1C )
+	{
+		fail += validate_P2P0_1C ( form.P2P0_1C.value );
+	}
+	if( form.P2P0_1E )
+	{
+		fail += validate_P2P0_1E ( form.P2P0_1E.value );
+	}
+	if( form.P2P0_2C )
+	{
+		fail += validate_P2P0_2C ( form.P2P0_2C.value );
+	}
+	if( form.P2P0_2E )
+	{
+		fail += validate_P2P0_2E ( form.P2P0_2E.value );
+	}
+	if( form.P2P0_R500C )
+	{
+		fail += validate_P2P0_R500C ( form.P2P0_R500C.value );
+	}
+	if( form.P2P0_R500E )
+	{
+		fail += validate_P2P0_R500E ( form.P2P0_R500E.value );
+	}
+	if( form.P3P0_1C )
+	{
+		fail += validate_P3P0_1C ( form.P3P0_1C.value );
+	}
+	if( form.P3P0_1E )
+	{
+		fail += validate_P3P0_1E ( form.P3P0_1E.value );
+	}
+	if( form.P3P0_2C )
+	{
+		fail += validate_P3P0_2C ( form.P3P0_2C.value );
+	}
+	if( form.P3P0_2E )
+	{
+		fail += validate_P3P0_2E ( form.P3P0_2E.value );
+	}
+	if( form.P3P0_R500C )
+	{
+		fail += validate_P3P0_R500C ( form.P3P0_R500C.value );
+	}
+	if( form.P3P0_R500E )
+	{
+		fail += validate_P3P0_R500E ( form.P3P0_R500E.value );
+	}
+	if( form.P4P0_1C )
+	{
+		fail += validate_P4P0_1C ( form.P4P0_1C.value );
+	}
+	if( form.P4P0_1E )
+	{
+		fail += validate_P4P0_1E ( form.P4P0_1E.value );
+	}
+	if( form.P4P0_2C )
+	{
+		fail += validate_P4P0_2C ( form.P4P0_2C.value );
+	}
+	if( form.P4P0_2E )
+	{
+		fail += validate_P4P0_2E ( form.P4P0_2E.value );
+	}
+	if( form.P4P0_R500C )
+	{
+		fail += validate_P4P0_R500C ( form.P4P0_R500C.value );
+	}
+	if( form.P4P0_R500E )
+	{
+		fail += validate_P4P0_R500E ( form.P4P0_R500E.value );
+	}
+	if( form.Wctr )
+	{
+		fail += validate_Wctr ( form.Wctr.value );
+	}
+	if( form.D150 )
+	{
+		fail += validate_D150 ( form.D150.value );
+	}
+	if( form.D350 )
+	{
+		fail += validate_D350 ( form.D350.value );
+	}
+	if( form.Dnr )
+	{
+		fail += validate_Dnr ( form.Dnr.value );
+	}
 
 	if( fail == "" )
 	{
