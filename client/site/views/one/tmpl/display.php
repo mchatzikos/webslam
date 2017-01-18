@@ -64,7 +64,7 @@ $this->js( "menu" );
 				</div>
 				<div class="form-group">
 					<label class="control-label col-xs-2" for="mode">Integration type for X-ray / SZE cumulative measures</label>
-					<select id="mode" name="mode" onchange="reveal_menu()">
+					<select id="mode" onchange="reveal_menu( this )">
 						<option disabled selected>-- select integration type --</option>
 						<option value="total">Spherical Volume</option>
 						<option value="proj">Projection (Cylindrical Volume)</option>
@@ -72,23 +72,23 @@ $this->js( "menu" );
 				</div>
 				<div class="not" id="totalInteg-radius">
 					<label class="control-label col-xs-2" for="radius">Spherical Radius</label>
-					<select id="radius" name="radius">
+					<select id="radius">
 						<option value="500">R500</option>
 						<option value="200">R200</option>
 					</select>
 				</div>
 				<div class="not" id="projInteg-axis">
-					<label class="control-label col-xs-2" for="axis">Axis of observation</label>
-					<select id="axis" name="axis">
+					<label class="control-label col-xs-2" for="axis">Axis of Observation</label>
+					<select id="axis">
 						<option value="6" selected>z</option>
 						<option value="5">y</option>
 						<option value="4">x</option>
 					</select>
 				</div>
 				<div class="not" id="projInteg-excCore">
-					<label class="control-label col-xs-2" for="excCore">Exclude Core from Projected quantities</label>
-					<select id="excCore" name="excCore">
-						<option value="no" selected>yes</option>
+					<label class="control-label col-xs-2" for="excCore">Exclude Core (0.15 R500) from Projected quantities</label>
+					<select id="excCore">
+						<option value="yes" selected>yes</option>
 						<option value="no">no</option>
 					</select>
 				</div>

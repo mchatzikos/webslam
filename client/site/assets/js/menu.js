@@ -1,30 +1,39 @@
 'use strict';
 
 
-function reveal_menu()
+function reveal_menu( menu )
 {
-       var integration_type = document.getElementById( 'mode' ).value;
-       //      alert( "integration_type is " + integration_type );
-       if( integration_type === "total" )
-       {
-	       $('#totalInteg-radius').removeClass( "not" );
-	       $('#totalIntegi-radius').addClass( "form-group" );
+	menu.name = 'mode';
+	var integration_type = menu.value;
+	//      alert( "integration_type is " + integration_type );
 
-	       $('#projInteg-axis').removeClass( "form-group" );
-	       $('#projInteg-axis').addClass( "not" );
+	if( integration_type === "total" )
+	{
+		$('#totalInteg-radius').removeClass( "not" );
+		$('#totalInteg-radius').addClass( "form-group" );
+		$('#totalInteg-radius').children('select').attr({ "name": "radius" });
 
-	       $('#projInteg-excCore').removeClass( "form-group" );
-	       $('#projInteg-excCore').addClass( "not" );
-       }
-       else if( integration_type === "proj" )
-       {
-	       $('#projInteg-axis').addClass( "form-group" );
-	       $('#projInteg-axis').removeClass( "not" );
+		$('#projInteg-axis').removeClass( "form-group" );
+		$('#projInteg-axis').addClass( "not" );
+		$('#projInteg-axis').children('select').attr({ "name": "" });
 
-	       $('#projInteg-excCore').addClass( "form-group" );
-	       $('#projInteg-excCore').removeClass( "not" );
+		$('#projInteg-excCore').removeClass( "form-group" );
+		$('#projInteg-excCore').addClass( "not" );
+		$('#projInteg-excCore').children('select').attr({ "name": "" });
 
-	       $('#totalInteg-radius').addClass( "not" );
-	       $('#totalInteg-radius').removeClass( "form-group" );
-       }
+	}
+	else if( integration_type === "proj" )
+	{
+		$('#projInteg-axis').addClass( "form-group" );
+		$('#projInteg-axis').removeClass( "not" );
+		$('#projInteg-axis').children('select').attr({ "name": "axis" });
+
+		$('#projInteg-excCore').addClass( "form-group" );
+		$('#projInteg-excCore').removeClass( "not" );
+		$('#projInteg-excCore').children('select').attr({ "name": "excCore" });
+
+		$('#totalInteg-radius').addClass( "not" );
+		$('#totalInteg-radius').removeClass( "form-group" );
+		$('#totalInteg-radius').children('select').attr({ "name": "" });
+	}
 }
