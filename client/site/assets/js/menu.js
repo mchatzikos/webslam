@@ -20,7 +20,6 @@ function reveal_menu( menu )
 		$('#projInteg-excCore').removeClass( "form-group" );
 		$('#projInteg-excCore').addClass( "not" );
 		$('#projInteg-excCore').children('select').attr({ "name": "" });
-
 	}
 	else if( integration_type === "proj" )
 	{
@@ -60,4 +59,68 @@ function process_mass_option( option )
 function process_radius_option( option )
 {
 	process_orbit_option( option, "R" );
+}
+
+
+function define_mass_option()
+{
+	var this_menu = "";
+	this_menu += "<div class=\"form-group\">" + "\n";
+	this_menu += "<label class=\"control-label col-xs-2\" for=\"Mass\" title=\"Units: Msol\">" + "\n";
+	this_menu += "Mass, in Msol" + "\n";
+	this_menu += "</label>" + "\n";
+	this_menu += "<select id=\"Mass-odens\" onchange=\"process_mass_option( this )\">" + "\n";
+	this_menu += "<option disabled selected>-- select overdensity --</option>" + "\n";
+	this_menu += "<option value=\"2500\">2500</option>" + "\n";
+	this_menu += "<option value=\"1000\">1000</option>" + "\n";
+	this_menu += "<option value=\"500\">500</option>" + "\n";
+	this_menu += "<option value=\"200\">200</option>" + "\n";
+	this_menu += "</select>" + "\n";
+	this_menu += "<input type=\"text\" size=\"12\" maxlength=\"12\" id=\"Mass\" name=\"Mass\">" + "\n";
+	this_menu += "<button type=\"button\" class=\"btn btn-default\" id=\"btnAddMass\" onclick=\"add_mass_option()\">" + "\n";
+	this_menu += "Add Mass Constraint" + "\n";
+	this_menu += "</button>" + "\n";
+	this_menu += "<br />" + "\n";
+	this_menu += "</div>" + "\n";
+
+	return this_menu;
+}
+function add_mass_option()
+{
+	var this_div = $('#btnAddMass').parent('div');
+	$('#btnAddMass').remove();
+	var new_menu = define_mass_option();
+	$(new_menu).insertAfter( this_div );
+}
+
+
+function define_radius_option()
+{
+	var this_menu = "";
+	this_menu += "<div class=\"form-group\">" + "\n";
+	this_menu += "<label class=\"control-label col-xs-2\" for=\"Radius\" title=\"Units: kpc\">" + "\n";
+	this_menu += "Radius, in kpc" + "\n";
+	this_menu += "</label>" + "\n";
+	this_menu += "<select id=\"Radius-odens\" onchange=\"process_radius_option( this )\">" + "\n";
+	this_menu += "<option disabled selected>-- select overdensity --</option>" + "\n";
+	this_menu += "<option value=\"2500\">2500</option>" + "\n";
+	this_menu += "<option value=\"1000\">1000</option>" + "\n";
+	this_menu += "<option value=\"500\">500</option>" + "\n";
+	this_menu += "<option value=\"200\">200</option>" + "\n";
+	this_menu += "</select>" + "\n";
+	this_menu += "<input type=\"text\" size=\"12\" maxlength=\"12\" id=\"Radius\" name=\"Radius\">" + "\n";
+	this_menu += "<button type=\"button\" class=\"btn btn-default\" id=\"btnAddRadius\" onclick=\"add_radius_option()\">" + "\n";
+	this_menu += "Add Radius Constraint" + "\n";
+	this_menu += "</button>" + "\n";
+	this_menu += "<br />" + "\n";
+	this_menu += "</div>" + "\n";
+
+	return this_menu;
+}
+function add_radius_option()
+{
+	var this_div = $('#btnAddRadius').parent('div');
+	$('#btnAddRadius').remove();
+	var new_menu = define_radius_option();
+	$(new_menu).insertAfter( this_div );
 }
