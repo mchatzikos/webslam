@@ -100,83 +100,41 @@ $this->js( "menu" );
 			<fieldset>
 				<legend>Orbit</legend>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="R200_1" title="Units: kpc">R200  primary cluster</label>
-					<input type="text" size="12" maxlength="12" id="R200_1" name="R200_1"><br />
+					<label class="control-label col-xs-2" for="Radius" title="Units: kpc">Radius, in kpc</label>
+					<select id="Radius-odens" onchange="process_radius_option( this )">
+						<option disabled selected>-- select overdensity --</option>
+						<option value="2500">2500</option>
+						<option value="1000">1000</option>
+						<option value="500">500</option>
+						<option value="200">200</option>
+					</select>
+					<input type="text" size="12" maxlength="12" id="Radius" name="Radius"><br />
 				</div>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="R500_1" title="Units: kpc">R500  primary cluster</label>
-					<input type="text" size="12" maxlength="12" id="R500_1" name="R500_1"><br />
+					<label class="control-label col-xs-2" for="Mass" title="Units: Msol">Mass, in Msol</label>
+					<select id="Mass-odens" onchange="process_mass_option( this )">
+						<option disabled selected>-- select overdensity --</option>
+						<option value="2500">2500</option>
+						<option value="1000">1000</option>
+						<option value="500">500</option>
+						<option value="200">200</option>
+					</select>
+					<input type="text" size="12" maxlength="12" id="Mass" name="Mass"><br />
 				</div>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="R1000_1" title="Units: kpc">R1000 primary cluster</label>
-					<input type="text" size="12" maxlength="12" id="R1000_1" name="R1000_1"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="R2500_1" title="Units: kpc">R2500 primary cluster</label>
-					<input type="text" size="12" maxlength="12" id="R2500_1" name="R2500_1"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="M200_1" title="Units: Msol">M200  primary cluster</label>
-					<input type="text" size="12" maxlength="12" id="M200_1" name="M200_1"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="M500_1" title="Units: Msol">M500  primary cluster</label>
-					<input type="text" size="12" maxlength="12" id="M500_1" name="M500_1"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="M1000_1" title="Units: Msol">M1000 primary cluster</label>
-					<input type="text" size="12" maxlength="12" id="M1000_1" name="M1000_1"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="M2500_1" title="Units: Msol">M2500 primary cluster</label>
-					<input type="text" size="12" maxlength="12" id="M2500_1" name="M2500_1"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="R200_2" title="Units: kpc">R200  subcluster</label>
-					<input type="text" size="12" maxlength="12" id="R200_2" name="R200_2"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="R500_2" title="Units: kpc">R500  subcluster</label>
-					<input type="text" size="12" maxlength="12" id="R500_2" name="R500_2"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="R1000_2" title="Units: kpc">R1000 subcluster</label>
-					<input type="text" size="12" maxlength="12" id="R1000_2" name="R1000_2"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="R2500_2" title="Units: kpc">R2500 subcluster</label>
-					<input type="text" size="12" maxlength="12" id="R2500_2" name="R2500_2"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="M200_2" title="Units: Msol">M200  subcluster</label>
-					<input type="text" size="12" maxlength="12" id="M200_2" name="M200_2"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="M500_2" title="Units: Msol">M500  subcluster</label>
-					<input type="text" size="12" maxlength="12" id="M500_2" name="M500_2"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="M1000_2" title="Units: Msol">M1000 subcluster</label>
-					<input type="text" size="12" maxlength="12" id="M1000_2" name="M1000_2"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="M2500_2" title="Units: Msol">M2500 subcluster</label>
-					<input type="text" size="12" maxlength="12" id="M2500_2" name="M2500_2"><br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="dist" title="Units: kpc">Cluster Distance</label>
+					<label class="control-label col-xs-2" for="dist" title="Units: kpc">Cluster Distance, in kpc</label>
 					<input type="text" size="12" maxlength="12" id="dist" name="dist"><br />
 				</div>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="vrel" title="Units: km/s">Relative Velocity</label>
+					<label class="control-label col-xs-2" for="vrel" title="Units: km/s">Relative Velocity, in km/s</label>
 					<input type="text" size="12" maxlength="12" id="vrel" name="vrel"><br />
 				</div>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="m200_tot" title="Units: Msol">Total M200</label>
+					<label class="control-label col-xs-2" for="m200_tot" title="Units: Msol">Total M200, in Msol</label>
 					<input type="text" size="12" maxlength="12" id="m200_tot" name="m200_tot"><br />
 				</div>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="m500_tot" title="Units: Msol">Total M500</label>
+					<label class="control-label col-xs-2" for="m500_tot" title="Units: Msol">Total M500, in Msol</label>
 					<input type="text" size="12" maxlength="12" id="m500_tot" name="m500_tot"><br />
 				</div>
 			</fieldset>
