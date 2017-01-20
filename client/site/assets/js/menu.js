@@ -125,10 +125,10 @@ function add_radius_option()
 	$(new_menu).insertAfter( this_div );
 }
 
-function process_xray_option( option )
+function process_option( option, select_label )
 {
 	var suffix = option.value;
-	var field_id = option.id.replace( /-band/, '' );
+	var field_id = option.id.replace( select_label, '' );
 	var new_id;
 
 	if( /^_/.test( suffix ) )
@@ -140,15 +140,17 @@ function process_xray_option( option )
 		new_id = suffix;
 	}
 
-	document.getElementById( field_id ).id = new_id;
-	document.getElementById( new_id ).name = new_id;
-	//	alert( "new field ID:\t" +  document.getElementById( new_id ).id );
+	$('#'+option.id).siblings('label').attr( { 'for': new_id } );
+	$('#'+option.id).siblings('input').attr( { 'id': new_id, 'name': new_id } );
+	alert( "new field ID:\t" +  new_id );
 
-        $('#'+new_id).siblings('label').attr( { 'for': new_id } );
-
-	option.id = new_id + "-band";
+	option.id = new_id + select_label;
 }
 
+function process_xray_option( option )
+{
+	process_option( option, '-band' );
+}
 
 function define_lx_option()
 {
@@ -225,28 +227,8 @@ function add_tx_option()
 
 function process_sze_option( option )
 {
-	var suffix = option.value;
-	var field_id = option.id.replace( /-freq/, '' );
-	var new_id;
-
-	if( /^_/.test( suffix ) )
-	{
-		new_id = field_id + suffix;
-	}
-	else
-	{
-		new_id = suffix;
-	}
-
-	document.getElementById( field_id ).id = new_id;
-	document.getElementById( new_id ).name = new_id;
-	//	alert( "new field ID:\t" +  document.getElementById( new_id ).id );
-
-        $('#'+new_id).siblings('label').attr( { 'for': new_id } );
-
-	option.id = new_id + "-freq";
+	process_option( option, '-freq' );
 }
-
 
 function define_tsze_option()
 {
@@ -313,28 +295,8 @@ function add_ksze_option()
 
 function process_xray_struc_option( option )
 {
-	var suffix = option.value;
-	var field_id = option.id.replace( /-aper/, '' );
-	var new_id;
-
-	if( /^_/.test( suffix ) )
-	{
-		new_id = field_id + suffix;
-	}
-	else
-	{
-		new_id = suffix;
-	}
-
-	document.getElementById( field_id ).id = new_id;
-	document.getElementById( new_id ).name = new_id;
-	//	alert( "new field ID:\t" +  document.getElementById( new_id ).id );
-
-        $('#'+new_id).siblings('label').attr( { 'for': new_id } );
-
-	option.id = new_id + "-aper";
+	process_option( option, '-aper' );
 }
-
 
 function define_p2p0_option()
 {
@@ -470,28 +432,8 @@ function add_offset_option()
 
 function process_sze_struc_option( option )
 {
-	var suffix = option.value;
-	var field_id = option.id.replace( /-offset/, '' );
-	var new_id;
-
-	if( /^_/.test( suffix ) )
-	{
-		new_id = field_id + suffix;
-	}
-	else
-	{
-		new_id = suffix;
-	}
-
-	document.getElementById( field_id ).id = new_id;
-	document.getElementById( new_id ).name = new_id;
-	//	alert( "new field ID:\t" +  document.getElementById( new_id ).id );
-
-        $('#'+new_id).siblings('label').attr( { 'for': new_id } );
-
-	option.id = new_id + "-offset";
+	process_option( option, '-offset' );
 }
-
 
 function define_sze_offset_option()
 {
