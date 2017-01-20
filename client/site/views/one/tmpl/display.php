@@ -363,26 +363,20 @@ $this->js( "menu" );
 				</div>
 			</fieldset>
 			<fieldset>
-				<legend>SZE Substructure</legend>
+				<legend>SZE Image Substructure</legend>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="Dnr" title="Units: R500">
-						NR Peak--proj.center dist
+					<label class="control-label col-xs-2" for="szeOffset" title="Units: R500">
+						Offset , in R500
 					</label>
-					<input type="text" size="12" maxlength="12" id="Dnr" name="Dnr">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="D150" title="Units: R500">
-						150 GHz Peak--proj.center dist
-					</label>
-					<input type="text" size="12" maxlength="12" id="D150" name="D150">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="D350" title="Units: R500">
-						350 GHz Peak--proj.center dist
-					</label>
-					<input type="text" size="12" maxlength="12" id="D350" name="D350">
+					<select id="szeOffset-offset" onchange="process_sze_struc_option( this )">
+						<option disabled selected>-- select offset --</option>
+						<option value="D150">cluster center -- 150 GHz peak</option>
+						<option value="D350">cluster center -- 350 GHz peak</option>
+					</select>
+					<input type="text" size="12" maxlength="12" id="szeOffset" name="szeOffset">
+					<button type="button" class="btn btn-default" id="btnAddSZEOffset" onclick="add_sze_offset_option()">
+						Add Offset Constraint
+					</button>
 					<br />
 				</div>
 			</fieldset>

@@ -467,3 +467,57 @@ function add_offset_option()
 	var new_menu = define_offset_option();
 	$(new_menu).insertAfter( this_div );
 }
+
+function process_sze_struc_option( option )
+{
+	var suffix = option.value;
+	var field_id = option.id.replace( /-offset/, '' );
+	var new_id;
+
+	if( /^_/.test( suffix ) )
+	{
+		new_id = field_id + suffix;
+	}
+	else
+	{
+		new_id = suffix;
+	}
+
+	document.getElementById( field_id ).id = new_id;
+	document.getElementById( new_id ).name = new_id;
+	//	alert( "new field ID:\t" +  document.getElementById( new_id ).id );
+
+        $('#'+new_id).siblings('label').attr( { 'for': new_id } );
+
+	option.id = new_id + "-offset";
+}
+
+
+function define_sze_offset_option()
+{
+	var this_menu = "";
+	this_menu += "<div class=\"form-group\">" + "\n";
+	this_menu += "<label class=\"control-label col-xs-2\" for=\"szeOffset\" title=\"Units: R500\">" + "\n";
+	this_menu += "Offset , in R500" + "\n";
+	this_menu += "</label>" + "\n";
+	this_menu += "<select id=\"szeOffset-offset\" onchange=\"process_sze_struc_option( this )\">" + "\n";
+	this_menu += "<option disabled selected>-- select offset --</option>" + "\n";
+	this_menu += "<option value=\"D150\">cluster center -- 150 GHz peak</option>" + "\n";
+	this_menu += "<option value=\"D350\">cluster center -- 350 GHz peak</option>" + "\n";
+	this_menu += "</select>" + "\n";
+	this_menu += "<input type=\"text\" size=\"12\" maxlength=\"12\" id=\"szeOffset\" name=\"szeOffset\">" + "\n";
+	this_menu += "<button type=\"button\" class=\"btn btn-default\" id=\"btnAddSZEOffset\" onclick=\"add_sze_offset_option()\">" + "\n";
+	this_menu += "Add Offset Constraint" + "\n";
+	this_menu += "</button>" + "\n";
+	this_menu += "<br />" + "\n";
+	this_menu += "</div>" + "\n";
+
+	return this_menu;
+}
+function add_sze_offset_option()
+{
+	var this_div = $('#btnAddSZEOffset').parent('div');
+	$('#btnAddSZEOffset').remove();
+	var new_menu = define_sze_offset_option();
+	$(new_menu).insertAfter( this_div );
+}
