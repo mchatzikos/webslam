@@ -222,3 +222,91 @@ function add_tx_option()
 	var new_menu = define_tx_option();
 	$(new_menu).insertAfter( this_div );
 }
+
+function process_sze_option( option )
+{
+	var suffix = option.value;
+	var field_id = option.id.replace( /-freq/, '' );
+	var new_id;
+
+	if( /^_/.test( suffix ) )
+	{
+		new_id = field_id + suffix;
+	}
+	else
+	{
+		new_id = suffix;
+	}
+
+	document.getElementById( field_id ).id = new_id;
+	document.getElementById( new_id ).name = new_id;
+	//	alert( "new field ID:\t" +  document.getElementById( new_id ).id );
+
+        $('#'+new_id).siblings('label').attr( { 'for': new_id } );
+
+	option.id = new_id + "-freq";
+}
+
+
+function define_tsze_option()
+{
+	var this_menu = "";
+	this_menu += "<div class=\"form-group\">" + "\n";
+	this_menu += "<label class=\"control-label col-xs-2\" for=\"tSZE\" title=\"Units: Mpc^2\">" + "\n";
+	this_menu += "Thermal SZE" + "\n";
+	this_menu += "</label>" + "\n";
+	this_menu += "<select id=\"tSZE-freq\" onchange=\"process_sze_option( this )\">" + "\n";
+	this_menu += "<option disabled selected>-- select band --</option>" + "\n";
+	this_menu += "<option value=\"_nr\">Freq. Independent</option>" + "\n";
+	this_menu += "<option value=\"_150\">150 GHz</option>" + "\n";
+	this_menu += "<option value=\"_220\">220 GHz</option>" + "\n";
+	this_menu += "<option value=\"_350\">350 GHz</option>" + "\n";
+	this_menu += "</select>" + "\n";
+	this_menu += "<input type=\"text\" size=\"12\" maxlength=\"12\" id=\"tSZE\" name=\"tSZE\">" + "\n";
+	this_menu += "<button type=\"button\" class=\"btn btn-default\" id=\"btnAddtSZE\" onclick=\"add_tsze_option()\">" + "\n";
+	this_menu += "Add tSZE Constraint" + "\n";
+	this_menu += "</button>" + "\n";
+	this_menu += "<br />" + "\n";
+	this_menu += "</div>" + "\n";
+
+	return this_menu;
+}
+function add_tsze_option()
+{
+	var this_div = $('#btnAddtSZE').parent('div');
+	$('#btnAddtSZE').remove();
+	var new_menu = define_tsze_option();
+	$(new_menu).insertAfter( this_div );
+}
+
+
+function define_ksze_option()
+{
+	var this_menu = "";
+	this_menu += "<div class=\"form-group\">" + "\n";
+	this_menu += "<label class=\"control-label col-xs-2\" for=\"kSZE\" title=\"Units: Mpc^2\">" + "\n";
+	this_menu += "Kinetic SZE" + "\n";
+	this_menu += "</label>" + "\n";
+	this_menu += "<select id=\"kSZE-freq\" onchange=\"process_sze_option( this )\">" + "\n";
+	this_menu += "<option disabled selected>-- select band --</option>" + "\n";
+	this_menu += "<option value=\"_nr\">Freq. Independent</option>" + "\n";
+	this_menu += "<option value=\"_150\">150 GHz</option>" + "\n";
+	this_menu += "<option value=\"_220\">220 GHz</option>" + "\n";
+	this_menu += "<option value=\"_350\">350 GHz</option>" + "\n";
+	this_menu += "</select>" + "\n";
+	this_menu += "<input type=\"text\" size=\"12\" maxlength=\"12\" id=\"kSZE\" name=\"kSZE\">" + "\n";
+	this_menu += "<button type=\"button\" class=\"btn btn-default\" id=\"btnAddkSZE\" onclick=\"add_ksze_option()\">" + "\n";
+	this_menu += "Add kSZE Constraint" + "\n";
+	this_menu += "</button>" + "\n";
+	this_menu += "<br />" + "\n";
+	this_menu += "</div>" + "\n";
+
+	return this_menu;
+}
+function add_ksze_option()
+{
+	var this_div = $('#btnAddkSZE').parent('div');
+	$('#btnAddkSZE').remove();
+	var new_menu = define_ksze_option();
+	$(new_menu).insertAfter( this_div );
+}

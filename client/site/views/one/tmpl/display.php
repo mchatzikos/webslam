@@ -236,68 +236,39 @@ $this->js( "menu" );
 				</div>
 			</fieldset>
 			<fieldset>
-				<legend>SZE Observables</legend>
+				<legend>Cumulative SZE Observables</legend>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="tSZE_nr" title="Units: Mpc^2">
-						Freq-independent Thermal SZE, no Rel-cor
+					<label class="control-label col-xs-2" for="tSZE" title="Units: Mpc^2">
+						Thermal SZE
 					</label>
-					<input type="text" size="12" maxlength="12" id="tSZE_nr" name="tSZE_nr">
+					<select id="tSZE-freq" onchange="process_sze_option( this )">
+						<option disabled selected>-- select band --</option>
+						<option value="_nr">Freq. Independent</option>
+						<option value="_150">150 GHz</option>
+						<option value="_220">220 GHz</option>
+						<option value="_350">350 GHz</option>
+					</select>
+					<input type="text" size="12" maxlength="12" id="tSZE" name="tSZE">
+					<button type="button" class="btn btn-default" id="btnAddtSZE" onclick="add_tsze_option()">
+						Add tSZE Constraint
+					</button>
 					<br />
 				</div>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="kSZE_nr" title="Units: Mpc^2">
-						Freq-independent Kinetic SZE, no Rel-cor
+					<label class="control-label col-xs-2" for="kSZE" title="Units: Mpc^2">
+						Kinetic SZE
 					</label>
-					<input type="text" size="12" maxlength="12" id="kSZE_nr" name="kSZE_nr">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="tSZE_150" title="Units: Mpc^2">
-						Thermal SZE @ 150 GHz
-					</label>
-					<input type="text" size="12" maxlength="12" id="tSZE_150" name="tSZE_150">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="kSZE_150" title="Units: Mpc^2">
-						Kinetic SZE @ 150 GHz
-					</label>
-					<input type="text" size="12" maxlength="12" id="kSZE_150" name="kSZE_150">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="tSZE_220" title="Units: Mpc^2">
-						Thermal SZE @ 220 GHz
-					</label>
-					<input type="text" size="12" maxlength="12" id="tSZE_220" name="tSZE_220">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="kSZE_220" title="Units: Mpc^2">
-						Kinetic SZE @ 220 GHz
-					</label>
-					<input type="text" size="12" maxlength="12" id="kSZE_220" name="kSZE_220">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="tSZE_350" title="Units: Mpc^2">
-						Thermal SZE @ 350 GHz
-					</label>
-					<input type="text" size="12" maxlength="12" id="tSZE_350" name="tSZE_350">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="kSZE_350" title="Units: Mpc^2">
-						Kinetic SZE @ 350 GHz
-					</label>
-					<input type="text" size="12" maxlength="12" id="kSZE_350" name="kSZE_350">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="YSZ" title="Units: Mpc^2">
-						Volume SZE, Freq-independent
-					</label>
-					<input type="text" size="12" maxlength="12" id="YSZ" name="YSZ">
+					<select id="kSZE-freq" onchange="process_sze_option( this )">
+						<option disabled selected>-- select band --</option>
+						<option value="_nr">Freq. Independent</option>
+						<option value="_150">150 GHz</option>
+						<option value="_220">220 GHz</option>
+						<option value="_350">350 GHz</option>
+					</select>
+					<input type="text" size="12" maxlength="12" id="kSZE" name="kSZE">
+					<button type="button" class="btn btn-default" id="btnAddkSZE" onclick="add_ksze_option()">
+						Add kSZE Constraint
+					</button>
 					<br />
 				</div>
 			</fieldset>
