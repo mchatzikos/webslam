@@ -175,24 +175,61 @@ $this->js( "menu" );
 				</div>
 			</fieldset>
 			<fieldset>
-				<legend>X-ray Hardness Ratio</legend>
+				<legend>Cumulative X-ray Observables</legend>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="Broad" title="Units: keV">
-						Broad band temperature
+					<label class="control-label col-xs-2" for="Lx" title="Units: erg/s">
+						Luminosity, in erg/s
 					</label>
-					<input type="text" size="12" maxlength="12" id="Broad" name="Broad">
+					<select id="Lx-band" onchange="process_xray_option( this )">
+						<option disabled selected>-- select band --</option>
+						<option value="_c_a">APEC, [0.7-7] keV</option>
+						<option value="_w_a">APEC, [0.5-4] keV</option>
+						<option value="_b_a">APEC, Bolometric</option>
+						<option value="_c_m">MeKaL, [0.7-7] keV</option>
+						<option value="_w_m">MeKaL, [0.5-4] keV</option>
+						<option value="_r_m">MeKaL, [2-10] keV</option>
+						<option value="_b_m">MeKaL, Bolometric</option>
+					</select>
+					<input type="text" size="12" maxlength="12" id="Lx" name="Lx">
+					<button type="button" class="btn btn-default" id="btnAddLx" onclick="add_lx_option()">
+						Add Luminosity Constraint
+					</button>
 					<br />
 				</div>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="Hard" title="Units: keV">
-						Hard band temperature
+					<label class="control-label col-xs-2" for="Tx" title="Units: keV">
+						Temperature, in keV
 					</label>
-					<input type="text" size="12" maxlength="12" id="Hard" name="Hard">
+					<select id="Tx-band" onchange="process_xray_option( this )">
+						<option disabled selected>-- select band --</option>
+						<option value="_c_a">Emission-Weighted, APEC, [0.7-7] keV</option>
+						<option value="_w_a">Emission-Weighted, APEC, [0.5-4] keV</option>
+						<option value="_b_a">Emission-Weighted, APEC, Bolometric</option>
+						<option value="_c_m">Emission-Weighted, MeKaL, [0.7-7] keV</option>
+						<option value="_w_m">Emission-Weighted, MeKaL, [0.5-4] keV</option>
+						<option value="_r_m">Emission-Weighted, MeKaL, [2-10] keV</option>
+						<option value="_b_m">Emission-Weighted, MeKaL, Bolometric</option>
+						<option value="Tsl">Spectroscopic-like (V06), MeKaL, [0.3-10] keV, nH=4e20 cm^{-2}, z=0.05</option>
+						<option value="Broad">Spectroscopic-like (V06), MeKaL, [0.7-7] keV, nH=4e20 cm^{-2}, z=0.05</option>
+						<option value="Hard">Spectroscopic-like (V06), MeKaL, [2-7] keV, nH=4e20 cm^{-2}, z=0.05</option>
+						<option value="Tmg">Mass-Weighted</option>
+					</select>
+					<input type="text" size="12" maxlength="12" id="Tx" name="Tx">
+					<button type="button" class="btn btn-default" id="btnAddTx" onclick="add_tx_option()">
+						Add Temperature Constraint
+					</button>
+					<br />
+				</div>
+				<div class="form-group">
+					<label class="control-label col-xs-2" for="Yx" title="Units: Msol keV">
+						YX, in Msol keV
+					</label>
+					<input type="text" size="12" maxlength="12" id="Yx" name="Yx">
 					<br />
 				</div>
 				<div class="form-group">
 					<label class="control-label col-xs-2" for="Ratio">
-						Hardness ratio (hard / broad)
+						Hardness Ratio, T(2-7 keV) / T(0.7-7 keV)
 					</label>
 					<input type="text" size="12" maxlength="12" id="Ratio" name="Ratio">
 					<br />
@@ -261,128 +298,6 @@ $this->js( "menu" );
 						Volume SZE, Freq-independent
 					</label>
 					<input type="text" size="12" maxlength="12" id="YSZ" name="YSZ">
-					<br />
-				</div>
-			</fieldset>
-			<fieldset>
-				<legend>X-ray Observables</legend>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Lx_c_a" title="Units: erg/s">
-						[0.7-7] APEC Luminosity
-					</label>
-					<input type="text" size="12" maxlength="12" id="Lx_c_a" name="Lx_c_a">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Tx_c_a" title="Units: keV">
-						[0.7-7] APEC Emission-Weighted temp
-					</label>
-					<input type="text" size="12" maxlength="12" id="Tx_c_a" name="Tx_c_a">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Lx_c_m" title="Units: erg/s">
-						[0.7-7] MeKaL Luminosity
-					</label>
-					<input type="text" size="12" maxlength="12" id="Lx_c_m" name="Lx_c_m">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Tx_c_m" title="Units: keV">
-						[0.7-7] MeKaL Emission-Weighted temp
-					</label>
-					<input type="text" size="12" maxlength="12" id="Tx_c_m" name="Tx_c_m">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Lx_w_a" title="Units: erg/s">
-						[0.5-4] APEC Luminosity
-					</label>
-					<input type="text" size="12" maxlength="12" id="Lx_w_a" name="Lx_w_a">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Tx_w_a" title="Units: keV">
-						[0.5-4] APEC Emission-Weighted temp
-					</label>
-					<input type="text" size="12" maxlength="12" id="Tx_w_a" name="Tx_w_a">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Lx_w_m" title="Units: erg/s">
-						[0.5-4] MeKaL Luminosity
-					</label>
-					<input type="text" size="12" maxlength="12" id="Lx_w_m" name="Lx_w_m">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Tx_w_m" title="Units: keV">
-						[0.5-4] MeKaL Emission-Weighted temp
-					</label>
-					<input type="text" size="12" maxlength="12" id="Tx_w_m" name="Tx_w_m">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Lx_r_m" title="Units: erg/s">
-						[2-10] MeKaL Luminosity
-					</label>
-					<input type="text" size="12" maxlength="12" id="Lx_r_m" name="Lx_r_m">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Tx_r_m" title="Units: keV">
-						[2-10] MeKaL Emission-Weighted temp
-					</label>
-					<input type="text" size="12" maxlength="12" id="Tx_r_m" name="Tx_r_m">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Lx_b_a" title="Units: erg/s">
-						Bolometric APEC Luminosity
-					</label>
-					<input type="text" size="12" maxlength="12" id="Lx_b_a" name="Lx_b_a">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Tx_b_a" title="Units: keV">
-						Bolometric APEC Emission-Weighted temp
-					</label>
-					<input type="text" size="12" maxlength="12" id="Tx_b_a" name="Tx_b_a">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Lx_b_m" title="Units: erg/s">
-						Bolometric MeKaL Luminosity
-					</label>
-					<input type="text" size="12" maxlength="12" id="Lx_b_m" name="Lx_b_m">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Tx_b_m" title="Units: keV">
-						Bolometric MeKaL Emission-Weighted temp
-					</label>
-					<input type="text" size="12" maxlength="12" id="Tx_b_m" name="Tx_b_m">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Tsl" title="Units: keV">
-						Spectroscopic-like Temp (V06)
-					</label>
-					<input type="text" size="12" maxlength="12" id="Tsl" name="Tsl">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Yx" title="Units: Msol keV">
-						X-ray proxy for Thermal Energy
-					</label>
-					<input type="text" size="12" maxlength="12" id="Yx" name="Yx">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Tmg" title="Units: keV">
-						Mass-Weighted temp
-					</label>
-					<input type="text" size="12" maxlength="12" id="Tmg" name="Tmg">
 					<br />
 				</div>
 			</fieldset>

@@ -124,3 +124,101 @@ function add_radius_option()
 	var new_menu = define_radius_option();
 	$(new_menu).insertAfter( this_div );
 }
+
+function process_xray_option( option )
+{
+	var suffix = option.value;
+	var field_id = option.id.replace( /-band/, '' );
+	var new_id;
+
+	if( /^_/.test( suffix ) )
+	{
+		new_id = field_id + suffix;
+	}
+	else
+	{
+		new_id = suffix;
+	}
+
+	document.getElementById( field_id ).id = new_id;
+	document.getElementById( new_id ).name = new_id;
+	//	alert( "new field ID:\t" +  document.getElementById( new_id ).id );
+
+        $('#'+new_id).siblings('label').attr( { 'for': new_id } );
+
+	option.id = new_id + "-band";
+}
+
+
+function define_lx_option()
+{
+	var this_menu = "";
+	this_menu += "<div class=\"form-group\">" + "\n";
+	this_menu += "<label class=\"control-label col-xs-2\" for=\"Lx\" title=\"Units: erg/s\">" + "\n";
+	this_menu += "Luminosity, in erg/s" + "\n";
+	this_menu += "</label>" + "\n";
+	this_menu += "<select id=\"Lx-band\" onchange=\"process_xray_option( this )\">" + "\n";
+	this_menu += "<option disabled selected>-- select band --</option>" + "\n";
+	this_menu += "<option value=\"_c_a\">APEC, [0.7-7] keV</option>" + "\n";
+	this_menu += "<option value=\"_w_a\">APEC, [0.5-4] keV</option>" + "\n";
+	this_menu += "<option value=\"_b_a\">APEC, Bolometric</option>" + "\n";
+	this_menu += "<option value=\"_c_m\">MeKaL, [0.7-7] keV</option>" + "\n";
+	this_menu += "<option value=\"_w_m\">MeKaL, [0.5-4] keV</option>" + "\n";
+	this_menu += "<option value=\"_r_m\">MeKaL, [2-10] keV</option>" + "\n";
+	this_menu += "<option value=\"_b_m\">MeKaL, Bolometric</option>" + "\n";
+	this_menu += "</select>" + "\n";
+	this_menu += "<input type=\"text\" size=\"12\" maxlength=\"12\" id=\"Lx\" name=\"Lx\">" + "\n";
+	this_menu += "<button type=\"button\" class=\"btn btn-default\" id=\"btnAddLx\" onclick=\"add_lx_option()\">" + "\n";
+	this_menu += "Add Luminosity Constraint" + "\n";
+	this_menu += "</button>" + "\n";
+	this_menu += "<br />" + "\n";
+	this_menu += "</div>" + "\n";
+
+	return this_menu;
+}
+function add_lx_option()
+{
+	var this_div = $('#btnAddLx').parent('div');
+	$('#btnAddLx').remove();
+	var new_menu = define_lx_option();
+	$(new_menu).insertAfter( this_div );
+}
+
+
+function define_tx_option()
+{
+	var this_menu = "";
+	this_menu += "<div class=\"form-group\">" + "\n";
+	this_menu += "<label class=\"control-label col-xs-2\" for=\"Tx\" title=\"Units: keV\">" + "\n";
+	this_menu += "Temperature, in keV" + "\n";
+	this_menu += "</label>" + "\n";
+	this_menu += "<select id=\"Tx-band\" onchange=\"process_xray_option( this )\">" + "\n";
+	this_menu += "<option disabled selected>-- select band --</option>" + "\n";
+	this_menu += "<option value=\"_c_a\">Emission-Weighted, APEC, [0.7-7] keV</option>" + "\n";
+	this_menu += "<option value=\"_w_a\">Emission-Weighted, APEC, [0.5-4] keV</option>" + "\n";
+	this_menu += "<option value=\"_b_a\">Emission-Weighted, APEC, Bolometric</option>" + "\n";
+	this_menu += "<option value=\"_c_m\">Emission-Weighted, MeKaL, [0.7-7] keV</option>" + "\n";
+	this_menu += "<option value=\"_w_m\">Emission-Weighted, MeKaL, [0.5-4] keV</option>" + "\n";
+	this_menu += "<option value=\"_r_m\">Emission-Weighted, MeKaL, [2-10] keV</option>" + "\n";
+	this_menu += "<option value=\"_b_m\">Emission-Weighted, MeKaL, Bolometric</option>" + "\n";
+	this_menu += "<option value=\"Tsl\">Spectroscopic-like (V06), MeKaL, [0.3-10] keV, nH=4e20 cm^{-2}, z=0.05</option>" + "\n";
+	this_menu += "<option value=\"Broad\">Spectroscopic-like (V06), MeKaL, [0.7-7] keV, nH=4e20 cm^{-2}, z=0.05</option>" + "\n";
+	this_menu += "<option value=\"Hard\">Spectroscopic-like (V06), MeKaL, [2-7] keV, nH=4e20 cm^{-2}, z=0.05</option>" + "\n";
+	this_menu += "<option value=\"Tmg\">Mass-Weighted</option>" + "\n";
+	this_menu += "</select>" + "\n";
+	this_menu += "<input type=\"text\" size=\"12\" maxlength=\"12\" id=\"Tx\" name=\"Tx\">" + "\n";
+	this_menu += "<button type=\"button\" class=\"btn btn-default\" id=\"btnAddTx\" onclick=\"add_tx_option()\">" + "\n";
+	this_menu += "Add Temperature Constraint" + "\n";
+	this_menu += "</button>" + "\n";
+	this_menu += "<br />" + "\n";
+	this_menu += "</div>" + "\n";
+
+	return this_menu;
+}
+function add_tx_option()
+{
+	var this_div = $('#btnAddTx').parent('div');
+	$('#btnAddTx').remove();
+	var new_menu = define_tx_option();
+	$(new_menu).insertAfter( this_div );
+}
