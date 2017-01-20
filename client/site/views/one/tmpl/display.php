@@ -109,6 +109,7 @@ $this->js( "menu" );
 					<input type="checkbox" name="optimized" id="optimized" value=1 checked>
 				</div>
 			</fieldset>
+			<br />
 			<fieldset>
 				<legend>Orbit</legend>
 				<div class="form-group">
@@ -174,6 +175,7 @@ $this->js( "menu" );
 					<br />
 				</div>
 			</fieldset>
+			<br />
 			<fieldset>
 				<legend>Cumulative X-ray Observables</legend>
 				<div class="form-group">
@@ -235,6 +237,7 @@ $this->js( "menu" );
 					<br />
 				</div>
 			</fieldset>
+			<br />
 			<fieldset>
 				<legend>Cumulative SZE Observables</legend>
 				<div class="form-group">
@@ -272,6 +275,7 @@ $this->js( "menu" );
 					<br />
 				</div>
 			</fieldset>
+			<br />
 			<fieldset>
 				<legend>X-ray Image Substructure</legend>
 				<div class="form-group">
@@ -362,6 +366,7 @@ $this->js( "menu" );
 					<br />
 				</div>
 			</fieldset>
+			<br />
 			<fieldset>
 				<legend>SZE Image Substructure</legend>
 				<div class="form-group">
@@ -380,6 +385,7 @@ $this->js( "menu" );
 					<br />
 				</div>
 			</fieldset>
+			<br />
 
 			<p><input type="submit" value="Search Simulations" name="submit" class="btn btn-default"/></p>
 		</form>
