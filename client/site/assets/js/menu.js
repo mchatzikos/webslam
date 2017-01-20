@@ -310,3 +310,160 @@ function add_ksze_option()
 	var new_menu = define_ksze_option();
 	$(new_menu).insertAfter( this_div );
 }
+
+function process_xray_struc_option( option )
+{
+	var suffix = option.value;
+	var field_id = option.id.replace( /-aper/, '' );
+	var new_id;
+
+	if( /^_/.test( suffix ) )
+	{
+		new_id = field_id + suffix;
+	}
+	else
+	{
+		new_id = suffix;
+	}
+
+	document.getElementById( field_id ).id = new_id;
+	document.getElementById( new_id ).name = new_id;
+	//	alert( "new field ID:\t" +  document.getElementById( new_id ).id );
+
+        $('#'+new_id).siblings('label').attr( { 'for': new_id } );
+
+	option.id = new_id + "-aper";
+}
+
+
+function define_p2p0_option()
+{
+	var this_menu = "";
+	this_menu += "<div class=\"form-group\">" + "\n";
+	this_menu += "<label class=\"control-label col-xs-2\" for=\"P2P0\">" + "\n";
+	this_menu += "Power Ratio: P2 / P0" + "\n";
+	this_menu += "</label>" + "\n";
+	this_menu += "<select id=\"P2P0-aper\" onchange=\"process_xray_struc_option( this )\">" + "\n";
+	this_menu += "<option disabled selected>-- select aperture --</option>" + "\n";
+	this_menu += "<option value=\"_R500C\">(0 -- 1) x R500</option>" + "\n";
+	this_menu += "<option value=\"_1C\">(0 -- 500) kpc</option>" + "\n";
+	this_menu += "<option value=\"_2C\">(0 -- 1000) kpc</option>" + "\n";
+	this_menu += "<option value=\"_R500E\">(0.05 -- 1) x R500</option>" + "\n";
+	this_menu += "<option value=\"_1E\">(30 -- 500) kpc</option>" + "\n";
+	this_menu += "<option value=\"_2E\">(30 -- 1000) kpc</option>" + "\n";
+	this_menu += "</select>" + "\n";
+	this_menu += "<input type=\"text\" size=\"12\" maxlength=\"12\" id=\"P2P0\" name=\"P2P0\">" + "\n";
+	this_menu += "<button type=\"button\" class=\"btn btn-default\" id=\"btnAddP2P0\" onclick=\"add_p2p0_option()\">" + "\n";
+	this_menu += "Add P2/P0 Constraint" + "\n";
+	this_menu += "</button>" + "\n";
+	this_menu += "<br />" + "\n";
+	this_menu += "</div>" + "\n";
+
+	return this_menu;
+}
+function add_p2p0_option()
+{
+	var this_div = $('#btnAddP2P0').parent('div');
+	$('#btnAddP2P0').remove();
+	var new_menu = define_p2p0_option();
+	$(new_menu).insertAfter( this_div );
+}
+
+
+function define_p3p0_option()
+{
+	var this_menu = "";
+	this_menu += "<div class=\"form-group\">" + "\n";
+	this_menu += "<label class=\"control-label col-xs-2\" for=\"P3P0\">" + "\n";
+	this_menu += "Power Ratio: P3 / P0" + "\n";
+	this_menu += "</label>" + "\n";
+	this_menu += "<select id=\"P3P0-aper\" onchange=\"process_xray_struc_option( this )\">" + "\n";
+	this_menu += "<option disabled selected>-- select aperture --</option>" + "\n";
+	this_menu += "<option value=\"_R500C\">(0 -- 1) x R500</option>" + "\n";
+	this_menu += "<option value=\"_1C\">(0 -- 500) kpc</option>" + "\n";
+	this_menu += "<option value=\"_2C\">(0 -- 1000) kpc</option>" + "\n";
+	this_menu += "<option value=\"_R500E\">(0.05 -- 1) x R500</option>" + "\n";
+	this_menu += "<option value=\"_1E\">(30 -- 500) kpc</option>" + "\n";
+	this_menu += "<option value=\"_2E\">(30 -- 1000) kpc</option>" + "\n";
+	this_menu += "</select>" + "\n";
+	this_menu += "<input type=\"text\" size=\"12\" maxlength=\"12\" id=\"P3P0\" name=\"P3P0\">" + "\n";
+	this_menu += "<button type=\"button\" class=\"btn btn-default\" id=\"btnAddP3P0\" onclick=\"add_p3p0_option()\">" + "\n";
+	this_menu += "Add P3/P0 Constraint" + "\n";
+	this_menu += "</button>" + "\n";
+	this_menu += "<br />" + "\n";
+	this_menu += "</div>" + "\n";
+
+	return this_menu;
+}
+function add_p3p0_option()
+{
+	var this_div = $('#btnAddP3P0').parent('div');
+	$('#btnAddP3P0').remove();
+	var new_menu = define_p3p0_option();
+	$(new_menu).insertAfter( this_div );
+}
+
+
+function define_p4p0_option()
+{
+	var this_menu = "";
+	this_menu += "<div class=\"form-group\">" + "\n";
+	this_menu += "<label class=\"control-label col-xs-2\" for=\"P4P0\">" + "\n";
+	this_menu += "Power Ratio: P4 / P0" + "\n";
+	this_menu += "</label>" + "\n";
+	this_menu += "<select id=\"P4P0-aper\" onchange=\"process_xray_struc_option( this )\">" + "\n";
+	this_menu += "<option disabled selected>-- select aperture --</option>" + "\n";
+	this_menu += "<option value=\"_R500C\">(0 -- 1) x R500</option>" + "\n";
+	this_menu += "<option value=\"_1C\">(0 -- 500) kpc</option>" + "\n";
+	this_menu += "<option value=\"_2C\">(0 -- 1000) kpc</option>" + "\n";
+	this_menu += "<option value=\"_R500E\">(0.05 -- 1) x R500</option>" + "\n";
+	this_menu += "<option value=\"_1E\">(30 -- 500) kpc</option>" + "\n";
+	this_menu += "<option value=\"_2E\">(30 -- 1000) kpc</option>" + "\n";
+	this_menu += "</select>" + "\n";
+	this_menu += "<input type=\"text\" size=\"12\" maxlength=\"12\" id=\"P4P0\" name=\"P4P0\">" + "\n";
+	this_menu += "<button type=\"button\" class=\"btn btn-default\" id=\"btnAddP4P0\" onclick=\"add_p4p0_option()\">" + "\n";
+	this_menu += "Add P4/P0 Constraint" + "\n";
+	this_menu += "</button>" + "\n";
+	this_menu += "<br />" + "\n";
+	this_menu += "</div>" + "\n";
+
+	return this_menu;
+}
+function add_p4p0_option()
+{
+	var this_div = $('#btnAddP4P0').parent('div');
+	$('#btnAddP4P0').remove();
+	var new_menu = define_p4p0_option();
+	$(new_menu).insertAfter( this_div );
+}
+
+
+function define_offset_option()
+{
+	var this_menu = "";
+	this_menu += "<div class=\"form-group\">" + "\n";
+	this_menu += "<label class=\"control-label col-xs-2\" for=\"offset\" title=\"Units: R500\">" + "\n";
+	this_menu += "Offset , in R500" + "\n";
+	this_menu += "</label>" + "\n";
+	this_menu += "<select id=\"offset-aper\" onchange=\"process_xray_struc_option( this )\">" + "\n";
+	this_menu += "<option disabled selected>-- select offset --</option>" + "\n";
+	this_menu += "<option value=\"Dpk_cen\">SB peak -- cluster center</option>" + "\n";
+	this_menu += "<option value=\"Dpk_pr\">SB peak -- PR center</option>" + "\n";
+	this_menu += "<option value=\"Dctr_pr\">CS center -- PR center</option>" + "\n";
+	this_menu += "</select>" + "\n";
+	this_menu += "<input type=\"text\" size=\"12\" maxlength=\"12\" id=\"offset\" name=\"offset\">" + "\n";
+	this_menu += "<button type=\"button\" class=\"btn btn-default\" id=\"btnAddOffset\" onclick=\"add_offset_option()\">" + "\n";
+	this_menu += "Add Offset Constraint" + "\n";
+	this_menu += "</button>" + "\n";
+	this_menu += "<br />" + "\n";
+	this_menu += "</div>" + "\n";
+
+	return this_menu;
+}
+function add_offset_option()
+{
+	var this_div = $('#btnAddOffset').parent('div');
+	$('#btnAddOffset').remove();
+	var new_menu = define_offset_option();
+	$(new_menu).insertAfter( this_div );
+}

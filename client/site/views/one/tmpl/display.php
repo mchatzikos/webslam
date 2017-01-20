@@ -273,187 +273,92 @@ $this->js( "menu" );
 				</div>
 			</fieldset>
 			<fieldset>
-				<legend>X-ray Substructure</legend>
+				<legend>X-ray Image Substructure</legend>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="Dpk_cen" title="Units: R500">
-						Peak--proj.center dist
+					<label class="control-label col-xs-2" for="P2P0">
+						Power Ratio: P2 / P0
 					</label>
-					<input type="text" size="12" maxlength="12" id="Dpk_cen" name="Dpk_cen">
+					<select id="P2P0-aper" onchange="process_xray_struc_option( this )">
+						<option disabled selected>-- select aperture --</option>
+						<option value="_R500C">(0 -- 1) x R500</option>
+						<option value="_1C">(0 -- 500) kpc</option>
+						<option value="_2C">(0 -- 1000) kpc</option>
+						<option value="_R500E">(0.05 -- 1) x R500</option>
+						<option value="_1E">(30 -- 500) kpc</option>
+						<option value="_2E">(30 -- 1000) kpc</option>
+					</select>
+					<input type="text" size="12" maxlength="12" id="P2P0" name="P2P0">
+					<button type="button" class="btn btn-default" id="btnAddP2P0" onclick="add_p2p0_option()">
+						Add P2/P0 Constraint
+					</button>
 					<br />
 				</div>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="P1P0_pk">
-						Power ratio ord=1 about peak
+					<label class="control-label col-xs-2" for="P3P0">
+						Power Ratio: P3 / P0
 					</label>
-					<input type="text" size="12" maxlength="12" id="P1P0_pk" name="P1P0_pk">
+					<select id="P3P0-aper" onchange="process_xray_struc_option( this )">
+						<option disabled selected>-- select aperture --</option>
+						<option value="_R500C">(0 -- 1) x R500</option>
+						<option value="_1C">(0 -- 500) kpc</option>
+						<option value="_2C">(0 -- 1000) kpc</option>
+						<option value="_R500E">(0.05 -- 1) x R500</option>
+						<option value="_1E">(30 -- 500) kpc</option>
+						<option value="_2E">(30 -- 1000) kpc</option>
+					</select>
+					<input type="text" size="12" maxlength="12" id="P3P0" name="P3P0">
+					<button type="button" class="btn btn-default" id="btnAddP3P0" onclick="add_p3p0_option()">
+						Add P3/P0 Constraint
+					</button>
 					<br />
 				</div>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="Dpk_pr" title="Units: R500">
-						Peak--PR center dist
+					<label class="control-label col-xs-2" for="P4P0">
+						Power Ratio: P4 / P0
 					</label>
-					<input type="text" size="12" maxlength="12" id="Dpk_pr" name="Dpk_pr">
+					<select id="P4P0-aper" onchange="process_xray_struc_option( this )">
+						<option disabled selected>-- select aperture --</option>
+						<option value="_R500C">(0 -- 1) x R500</option>
+						<option value="_1C">(0 -- 500) kpc</option>
+						<option value="_2C">(0 -- 1000) kpc</option>
+						<option value="_R500E">(0.05 -- 1) x R500</option>
+						<option value="_1E">(30 -- 500) kpc</option>
+						<option value="_2E">(30 -- 1000) kpc</option>
+					</select>
+					<input type="text" size="12" maxlength="12" id="P4P0" name="P4P0">
+					<button type="button" class="btn btn-default" id="btnAddP4P0" onclick="add_p4p0_option()">
+						Add P4/P0 Constraint
+					</button>
 					<br />
 				</div>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="P2P0_R500C">
-						P2/P0 ratio w/in 1.0 R500, core included
+					<label class="control-label col-xs-2" for="offset" title="Units: R500">
+						Offset , in R500
 					</label>
-					<input type="text" size="12" maxlength="12" id="P2P0_R500C" name="P2P0_R500C">
+					<select id="offset-aper" onchange="process_xray_struc_option( this )">
+						<option disabled selected>-- select offset --</option>
+						<option value="Dpk_cen">SB peak -- cluster center</option>
+						<option value="Dpk_pr">SB peak -- PR center</option>
+						<option value="Dctr_pr">CS center -- PR center</option>
+					</select>
+					<input type="text" size="12" maxlength="12" id="offset" name="offset">
+					<button type="button" class="btn btn-default" id="btnAddOffset" onclick="add_offset_option()">
+						Add Offset Constraint
+					</button>
 					<br />
 				</div>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="P3P0_R500C">
-						P3/P0 ratio w/in 1.0 R500, core included
+					<label class="control-label col-xs-2" for="P1P0">
+						Power Ratio: P1 / P0 (within R500)
 					</label>
-					<input type="text" size="12" maxlength="12" id="P3P0_R500C" name="P3P0_R500C">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P4P0_R500C">
-						P4/P0 ratio w/in 1.0 R500, core included
-					</label>
-					<input type="text" size="12" maxlength="12" id="P4P0_R500C" name="P4P0_R500C">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P2P0_1C">
-						P2/P0 ratio w/in  500.0 kpc, core included
-					</label>
-					<input type="text" size="12" maxlength="12" id="P2P0_1C" name="P2P0_1C">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P3P0_1C">
-						P3/P0 ratio w/in  500.0 kpc, core included
-					</label>
-					<input type="text" size="12" maxlength="12" id="P3P0_1C" name="P3P0_1C">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P4P0_1C">
-						P4/P0 ratio w/in  500.0 kpc, core included
-					</label>
-					<input type="text" size="12" maxlength="12" id="P4P0_1C" name="P4P0_1C">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P2P0_2C">
-						P2/P0 ratio w/in 1000.0 kpc, core included
-					</label>
-					<input type="text" size="12" maxlength="12" id="P2P0_2C" name="P2P0_2C">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P3P0_2C">
-						P3/P0 ratio w/in 1000.0 kpc, core included
-					</label>
-					<input type="text" size="12" maxlength="12" id="P3P0_2C" name="P3P0_2C">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P4P0_2C">
-						P4/P0 ratio w/in 1000.0 kpc, core included
-					</label>
-					<input type="text" size="12" maxlength="12" id="P4P0_2C" name="P4P0_2C">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P2P0_R500E">
-						P2/P0 ratio w/in (0.05--1.0) R500
-					</label>
-					<input type="text" size="12" maxlength="12" id="P2P0_R500E" name="P2P0_R500E">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P3P0_R500E">
-						P3/P0 ratio w/in (0.05--1.0) R500
-					</label>
-					<input type="text" size="12" maxlength="12" id="P3P0_R500E" name="P3P0_R500E">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P4P0_R500E">
-						P4/P0 ratio w/in (0.05--1.0) R500
-					</label>
-					<input type="text" size="12" maxlength="12" id="P4P0_R500E" name="P4P0_R500E">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P2P0_1E">
-						P2/P0 ratio w/in (  30.0-- 500.0) kpc
-					</label>
-					<input type="text" size="12" maxlength="12" id="P2P0_1E" name="P2P0_1E">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P3P0_1E">
-						P3/P0 ratio w/in (  30.0-- 500.0) kpc
-					</label>
-					<input type="text" size="12" maxlength="12" id="P3P0_1E" name="P3P0_1E">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P4P0_1E">
-						P4/P0 ratio w/in (  30.0-- 500.0) kpc
-					</label>
-					<input type="text" size="12" maxlength="12" id="P4P0_1E" name="P4P0_1E">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P2P0_2E">
-						P2/P0 ratio w/in (  30.0--1000.0) kpc
-					</label>
-					<input type="text" size="12" maxlength="12" id="P2P0_2E" name="P2P0_2E">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P3P0_2E">
-						P3/P0 ratio w/in (  30.0--1000.0) kpc
-					</label>
-					<input type="text" size="12" maxlength="12" id="P3P0_2E" name="P3P0_2E">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="P4P0_2E">
-						P4/P0 ratio w/in (  30.0--1000.0) kpc
-					</label>
-					<input type="text" size="12" maxlength="12" id="P4P0_2E" name="P4P0_2E">
+					<input type="text" size="12" maxlength="12" id="P1P0" name="P1P0">
 					<br />
 				</div>
 				<div class="form-group">
 					<label class="control-label col-xs-2" for="Wctr" title="Units: R500">
-						Centroid Shift
+						Centroid Shift, in R500
 					</label>
 					<input type="text" size="12" maxlength="12" id="Wctr" name="Wctr">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Dctr_pr" title="Units: R500">
-						Centroid-PRcen dist
-					</label>
-					<input type="text" size="12" maxlength="12" id="Dctr_pr" name="Dctr_pr">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="AxialRatio">
-						O'Hara et al. (2006) def
-					</label>
-					<input type="text" size="12" maxlength="12" id="AxialRatio" name="AxialRatio">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Ellipticity">
-						Hashimoto et al. (2007) def
-					</label>
-					<input type="text" size="12" maxlength="12" id="Ellipticity" name="Ellipticity">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="Asymmetry">
-						Hashimoto et al. (2007) def
-					</label>
-					<input type="text" size="12" maxlength="12" id="Asymmetry" name="Asymmetry">
 					<br />
 				</div>
 			</fieldset>
