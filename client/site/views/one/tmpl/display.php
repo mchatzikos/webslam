@@ -44,7 +44,7 @@ $this->js( "menu" );
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-	<h2><?php echo JText::_('WebSLAM Search'); ?></h2>
+	<h2><?php echo JText::_('webSLAM Search'); ?></h2>
 </div><!-- / #content-header -->
 
 <div class="contentpaneopen">
