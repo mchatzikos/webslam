@@ -96,7 +96,7 @@ defined('_JEXEC') or die('Restricted access');
 		}
 		echo "\t\t\t</tr>\n";
 	}
-	
+
 	function outputTableHeader($paramArray)
 	{
 		$Request_header = array( "", "", "Requested:" );
