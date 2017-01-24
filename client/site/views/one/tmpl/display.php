@@ -147,20 +147,6 @@ $this->js( "menu" );
 					<br />
 				</div>
 				<div class="form-group">
-					<label class="control-label col-xs-2" for="dist" title="Units: kpc">
-						Cluster Distance, in kpc
-					</label>
-					<input type="text" size="12" maxlength="12" id="dist" name="dist">
-					<br />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-xs-2" for="vrel" title="Units: km/s">
-						Relative Velocity, in km/s
-					</label>
-					<input type="text" size="12" maxlength="12" id="vrel" name="vrel">
-					<br />
-				</div>
-				<div class="form-group">
 					<label class="control-label col-xs-2" for="m200_tot" title="Units: Msol">
 						Total M200, in Msol
 					</label>
@@ -172,6 +158,20 @@ $this->js( "menu" );
 						Total M500, in Msol
 					</label>
 					<input type="text" size="12" maxlength="12" id="m500_tot" name="m500_tot">
+					<br />
+				</div>
+				<div class="form-group">
+					<label class="control-label col-xs-2" for="dist" title="Units: kpc">
+						Cluster Distance, in kpc
+					</label>
+					<input type="text" size="12" maxlength="12" id="dist" name="dist">
+					<br />
+				</div>
+				<div class="form-group">
+					<label class="control-label col-xs-2" for="vrel" title="Units: km/s">
+						Relative Velocity, in km/s
+					</label>
+					<input type="text" size="12" maxlength="12" id="vrel" name="vrel">
 					<br />
 				</div>
 			</fieldset>
